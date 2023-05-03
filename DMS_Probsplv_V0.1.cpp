@@ -13,6 +13,7 @@ int main()
 {
 	//George was here//OMGGGGG YLAHWYYYY
 	//ALOOOOOOOOOOOOOOOOOOOOOOOOOO
+	//alo 2.0
 	sf::RenderWindow win(sf::VideoMode(750, 400), "tst", sf::Style::None);
 	tgui::GuiSFML gui{ win };
 
