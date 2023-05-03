@@ -11,8 +11,6 @@ FormManger Fhndlr;
 
 int main()
 {	
-	//alo 2.0
-	//alo please man
 	//George was here
 	sf::RenderWindow win(sf::VideoMode(750, 400), "tst", sf::Style::None);
 	tgui::GuiSFML gui{ win };
