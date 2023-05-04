@@ -9,6 +9,9 @@
 
 class FormManger
 {
+private:
+
+
 
 public:
 	struct 
@@ -17,6 +20,8 @@ public:
 		tgui::String Student = STUDENT_SCREEN_PATH;
 
 	}Form;
+
+	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML &gui,tgui::String User);
 
 
 };

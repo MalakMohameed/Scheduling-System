@@ -1,4 +1,6 @@
-#include <sfml/Graphics.hpp>
+//Signed by: Daniel #1
+
+#include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include <Windows.h>
 #include <iostream>
@@ -11,7 +13,7 @@ FormManger Fhndlr;
 int main()
 {	
 	//George was here
-	sf::RenderWindow win(sf::VideoMode(750, 400), "tst", sf::Style::None);
+	sf::RenderWindow win(sf::VideoMode(750, 400), "Student Advising", sf::Style::None);
 	tgui::GuiSFML gui{ win };
 
 
@@ -20,6 +22,7 @@ int main()
 
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
+	//gui.get<tgui::EditBox>("EditBox1")->setDefaultText("");
 	gui.get<tgui::Button>("Button1")->onPress([&gui, &win] {
 
 		
@@ -27,10 +30,13 @@ int main()
 
 		std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
 
-
+			
 		if (CurrentUser.validateLogin(UsrName,Pass))
 		{
 			std::cout << "login Success!\n";
+			win.create(sf::VideoMode(750, 750), "Student Advising");
+			Fhndlr.Setscreen(win, gui, UsrName);
+			
 		}
 		else
 		{
