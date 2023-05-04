@@ -89,8 +89,9 @@ Button.USR_Button {
         TextColor = #F9FAFF;
         TextColorDisabled = #7D7D7D;
         TextColorDown = #FAEDFF;
-        TextColorHover = #FBEAFF;
-        TextStyle = Regular;
+        TextColorHover = #9F0C1D;
+        TextStyle = Bold;
+        TextStyleHover = Bold;
         Texture = None;
         TextureDisabled = None;
         TextureDown = None;

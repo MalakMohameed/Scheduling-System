@@ -36,6 +36,10 @@ int main()
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising");
 			Fhndlr.Setscreen(win, gui, UsrName);
+			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
+			
+
+			
 			
 		}
 		else
