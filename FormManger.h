@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include <iostream>
-	
+	//
 #pragma once
 
 #define LOGIN_SCREEN_PATH "resources/LoginScrnForm.txt"
