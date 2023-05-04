@@ -46,7 +46,7 @@ Picture.Picture2 {
     Size = (631, 328.764);
 
     Renderer {
-        Texture = "Screenshot 2023-05-01 225146.png" Smooth;
+        Texture = "Inst_TimeTable.png" Smooth;
         TransparentTexture = false;
     }
 }
