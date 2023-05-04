@@ -29,8 +29,18 @@ private:
 		{"Nour","admin", "101513"},
 		{"George", "admin", "101514"},
 		{"a","a", " "}
-		
+	};
 
+	std::string InstructorDB[9][2] =
+	{   {"Salma Ahmad","instructor23"},
+		{"Mariam Hossam","instructor24"},
+		{"Hind Samy","teachingassistant30",},
+		{"Khaled Mohamed ","teachingassistant31"},
+		{"Mohamed Mohamed","instructor56"},
+		{"Hany George","teachingassistant57"},
+		{"Amira Salama","instructor11"},
+		{"Dina Hosni","teachingassistant14"},
+		{"Sara Youssef","instructor69"},
 	};
 
 };

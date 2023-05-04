@@ -6,6 +6,8 @@
 
 #define LOGIN_SCREEN_PATH "resources/LoginScrnForm.txt"
 #define STUDENT_SCREEN_PATH "resources/StudenetForm.txt"
+#define INSTRUCTOR_SCREEN_PATH "resources/InstructorForm.txt"
+
 
 class FormManger
 {
@@ -18,6 +20,7 @@ public:
 	{
 		tgui::String Login = LOGIN_SCREEN_PATH;
 		tgui::String Student = STUDENT_SCREEN_PATH;
+		tgui::String Instructor = INSTRUCTOR_SCREEN_PATH;
 
 	}Form;
 

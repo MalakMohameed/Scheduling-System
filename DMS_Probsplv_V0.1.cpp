@@ -13,7 +13,7 @@ FormManger Fhndlr;
 int main()
 {	
 	//George was here
-	sf::RenderWindow win(sf::VideoMode(750, 400), "Student Advising", sf::Style::None);
+	sf::RenderWindow win(sf::VideoMode(750, 400), "Login", sf::Style::None);
 	tgui::GuiSFML gui{ win };
 
 
@@ -22,7 +22,7 @@ int main()
 
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
-	//gui.get<tgui::EditBox>("EditBox1")->setDefaultText("");
+
 	gui.get<tgui::Button>("Button1")->onPress([&gui, &win] {
 
 		
@@ -38,6 +38,12 @@ int main()
 			Fhndlr.Setscreen(win, gui, UsrName);
 			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
 			
+		}
+		else if(CurrentUser.validateLogin(UsrName, Pass))
+		{
+			std::cout << "login Success!\n";
+			win.create(sf::VideoMode(750, 750), "Instructor Advising");
+			Fhndlr.Setscreen(win, gui, UsrName);
 		}
 		else
 		{
