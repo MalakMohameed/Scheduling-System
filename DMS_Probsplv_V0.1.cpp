@@ -8,7 +8,6 @@
 User CurrentUser;
 FormManger Fhndlr;
 
-
 int main()
 {
 	//George was here

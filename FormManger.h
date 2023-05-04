@@ -9,6 +9,7 @@
 
 class FormManger
 {
+
 public:
 	struct 
 	{
@@ -16,5 +17,7 @@ public:
 		tgui::String Student = STUDENT_SCREEN_PATH;
 
 	}Form;
+
+
 };
 
