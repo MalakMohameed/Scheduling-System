@@ -46,7 +46,7 @@ Picture.Picture2 {
     Size = (631, 328.764);
 
     Renderer {
-        Texture = "Screenshot 2023-05-01 225146.png" Smooth;
+        Texture = "Inst_TimeTable.png" Smooth;
         TransparentTexture = false;
     }
 }
@@ -281,7 +281,7 @@ CheckBox.ch4_4 {
 
 Tabs.Tabs1 {
     AutoSize = 0;
-    Position = (70, 180);
+    Position = (270, 180);
     Size = (132, 22);
     Tabs = [Lectures, Labs];
     TextSize = 13;
@@ -303,5 +303,31 @@ Tabs.Tabs1 {
         TextureSelectedTabHover = None;
         TextureTab = None;
         TextureTabHover = None;
+    }
+}
+
+ComboBox.ComboBox1 {
+    ChangeItemOnScroll = false;
+    ItemsToDisplay = 0;
+    MaximumItems = 0;
+    Position = (70, 180);
+    Size = (160, 22);
+    TextSize = 13;
+
+    Renderer {
+        ArrowBackgroundColor = #F5F5F5;
+        ArrowBackgroundColorHover = white;
+        ArrowColor = #3C3C3C;
+        ArrowColorHover = black;
+        BackgroundColor = #F5F5F5;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        Padding = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextureArrow = None;
+        TextureArrowDisabled = None;
+        TextureArrowHover = None;
+        TextureBackground = None;
+        TextureBackgroundDisabled = None;
     }
 }

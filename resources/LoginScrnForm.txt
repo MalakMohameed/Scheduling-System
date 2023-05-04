@@ -4,24 +4,20 @@ Renderer.1 {
     BackgroundColorHover = white;
     BorderColor = #3C3C3C;
     BorderColorDisabled = #7D7D7D;
-    BorderColorFocused = #1E1EB4;
     BorderColorHover = black;
     Borders = (1, 1, 1, 1);
-    CheckColor = #3C3C3C;
-    CheckColorDisabled = #7D7D7D;
-    CheckColorHover = black;
+    CaretColor = black;
+    CaretWidth = 1;
+    DefaultTextColor = #A0A0A0;
+    Padding = (0, 0, 0, 0);
+    SelectedTextBackgroundColor = #006EFF;
+    SelectedTextColor = white;
     TextColor = #3C3C3C;
     TextColorDisabled = #7D7D7D;
-    TextColorHover = black;
-    TextDistanceRatio = 0.2;
-    TextureChecked = None;
-    TextureCheckedDisabled = None;
-    TextureCheckedFocused = None;
-    TextureCheckedHover = None;
-    TextureUnchecked = None;
-    TextureUncheckedDisabled = None;
-    TextureUncheckedFocused = None;
-    TextureUncheckedHover = None;
+    Texture = None;
+    TextureDisabled = None;
+    TextureFocused = None;
+    TextureHover = None;
 }
 
 Renderer.2 {
@@ -75,106 +71,95 @@ Button.Button1 {
 }
 
 EditBox.EditBox1 {
-    DefaultText = Username;
     Position = (520, 197.25);
+    Renderer = &1;
     Size = (180, 26);
     TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (0, 0, 0, 0);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        Texture = None;
-        TextureDisabled = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
 }
 
 EditBox.EditBox2 {
-    DefaultText = Password;
     Position = (520, 247.25);
+    Renderer = &1;
     Size = (180, 26);
     TextSize = 13;
-
-    Renderer {
-        BackgroundColor = #F5F5F5;
-        BackgroundColorDisabled = #E6E6E6;
-        BackgroundColorHover = white;
-        BorderColor = #3C3C3C;
-        BorderColorDisabled = #7D7D7D;
-        BorderColorHover = black;
-        Borders = (0, 0, 0, 0);
-        CaretColor = black;
-        CaretWidth = 1;
-        DefaultTextColor = #A0A0A0;
-        Padding = (0, 0, 0, 0);
-        SelectedTextBackgroundColor = #006EFF;
-        SelectedTextColor = white;
-        TextColor = #3C3C3C;
-        TextColorDisabled = #7D7D7D;
-        Texture = None;
-        TextureDisabled = None;
-        TextureFocused = None;
-        TextureHover = None;
-    }
 }
 
 Label.Label1 {
     AutoSize = true;
-    Position = (520, 160);
-    Size = (61.2, 19);
+    Position = (520, 130);
+    Renderer = &2;
+    Size = (61.2, 18);
     Text = "Login as:";
     TextSize = 13;
-
-    Renderer {
-        Borders = (0, 0, 0, 0);
-        Padding = (0, 0, 0, 1);
-        TextColor = rgba(255, 255, 255, 215);
-        TextureBackground = None;
-
-        Scrollbar {
-            ArrowBackgroundColor = rgba(160, 160, 160, 215);
-            ArrowBackgroundColorHover = rgba(170, 170, 170, 215);
-            ArrowColor = rgba(200, 200, 200, 215);
-            ArrowColorHover = rgba(225, 225, 225, 215);
-            ThumbColor = rgba(185, 185, 185, 215);
-            ThumbColorHover = rgba(195, 195, 195, 215);
-            TrackColor = rgba(160, 160, 160, 215);
-            TrackColorHover = rgba(170, 170, 170, 215);
-        }
-    }
 }
 
 RadioButton.RadioButton1 {
-    Position = (620, 180);
-    Renderer = &1;
+    Position = (520, 160);
     Size = (18, 13);
     TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CheckColor = #3C3C3C;
+        CheckColorDisabled = #7D7D7D;
+        CheckColorHover = black;
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorHover = black;
+        TextDistanceRatio = 0.2;
+        TextureChecked = None;
+        TextureCheckedDisabled = None;
+        TextureCheckedFocused = None;
+        TextureCheckedHover = None;
+        TextureUnchecked = None;
+        TextureUncheckedDisabled = None;
+        TextureUncheckedFocused = None;
+        TextureUncheckedHover = None;
+    }
 }
 
 RadioButton.RadioButton2 {
     Position = (520, 180);
-    Renderer = &1;
     Size = (18, 13);
     TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #F5F5F5;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        CheckColor = #3C3C3C;
+        CheckColorDisabled = #7D7D7D;
+        CheckColorHover = black;
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorHover = black;
+        TextDistanceRatio = 0.2;
+        TextureChecked = None;
+        TextureCheckedDisabled = None;
+        TextureCheckedFocused = None;
+        TextureCheckedHover = None;
+        TextureUnchecked = None;
+        TextureUncheckedDisabled = None;
+        TextureUncheckedFocused = None;
+        TextureUncheckedHover = None;
+    }
 }
 
 Label.Label2 {
     AutoSize = true;
-    Position = (640, 180);
+    Position = (540, 160);
     Renderer = &2;
     Size = (53.2, 18);
     Text = Student;
