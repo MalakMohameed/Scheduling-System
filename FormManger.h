@@ -24,7 +24,7 @@ public:
 
 	}Form;
 
-	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML &gui,tgui::String User);
+	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML &gui,tgui::String User, tgui::String Usertype);
 
 
 };

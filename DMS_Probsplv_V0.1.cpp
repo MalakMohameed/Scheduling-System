@@ -29,22 +29,23 @@ int main()
 		std::string UsrName = gui.get<tgui::EditBox>("EditBox1")->getText().toStdString();
 
 		std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
-
+		
 			
 		if (CurrentUser.validateLogin(UsrName,Pass))
 		{
+			std::string Usertype = CurrentUser.getUserType();
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising");
-			Fhndlr.Setscreen(win, gui, UsrName);
+			Fhndlr.Setscreen(win, gui, UsrName, Usertype);
 			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
 			
 		}
-		else if(CurrentUser.validateLogin(UsrName, Pass))
+		/*else if(CurrentUser.validateLogin(UsrName, Pass))
 		{
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Instructor Advising");
 			Fhndlr.Setscreen(win, gui, UsrName);
-		}
+		}*/
 		else
 		{
 			int MboxFailLogin1 = MessageBoxA(NULL, (LPCSTR)"Login failed\n Username or Password incorrect", (LPCSTR)"Login Error", MB_ICONWARNING | MB_RETRYCANCEL | MB_DEFBUTTON1);
