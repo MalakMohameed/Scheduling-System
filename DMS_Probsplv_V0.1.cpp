@@ -38,9 +38,6 @@ int main()
 			Fhndlr.Setscreen(win, gui, UsrName);
 			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
 			
-
-			
-			
 		}
 		else
 		{

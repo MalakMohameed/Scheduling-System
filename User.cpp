@@ -28,7 +28,7 @@
 bool User::validateLogin(std::string usr, std::string pass)
 {
 	std::cout << "FUNC CALL!\n";
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 9; i++)
 	{
 		 if (usr==StudentDB[i][0] && pass == StudentDB[i][1])
 		{
