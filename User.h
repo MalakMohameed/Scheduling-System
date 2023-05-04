@@ -20,13 +20,13 @@ private:
 	std::string UsrName;
 	std::string Pass;
 
-	std::string StudentDB[2][6] =
-	{ "Saif","admin"
-		"Daniel","admin"
-		"Yahia","admin"
-		"Bassem","admin"
-		"Malak","admin"
-		"Nour","admin"
+	std::string StudentDB[6][2] =
+	{   {"Saif","admin"},
+		{"Daniel","admin"},
+		{"Yahia","admin"},
+		{"Bassem","admin"},
+		{"Malak","admin"},
+		{"Nour","admin"}
 		
 
 	};
