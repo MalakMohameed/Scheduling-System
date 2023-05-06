@@ -1,4 +1,4 @@
-//Signed by: Daniel #3
+//Signed by: Daniel #4
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -70,14 +70,11 @@ int main()
 			}
 		}
 
-		
-		
 
 		win.clear();	
 		gui.draw();
 		win.display();
 
-		
 	}
 }
 
