@@ -21,7 +21,7 @@ private:
 	std::string UsrName;
 	std::string UserType;
 
-	std::string UserDB[17][3] =
+	std::string UserDB[18][3] =
 	{   {"Saif","admin",  "ST"},
 		{"Daniel","admin","ST"},
 		{"Yahia","admin", "ST"},
@@ -29,7 +29,8 @@ private:
 		{"Malak","admin", "ST"},
 		{"Nour","admin",  "ST"},
 		{"George","admin","ST"},
-		{"a","a", "ST "},
+		{"a","a", "ST"},
+		{"b","b",	"IN"},
 		{"Salma Ahmad","instructor23",				"IN"},
 		{"Mariam Hossam","instructor24",			"IN"},
 		{"Hind Samy","teachingassistant30",			"IN"},

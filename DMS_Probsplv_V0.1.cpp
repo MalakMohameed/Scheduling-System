@@ -1,4 +1,4 @@
-//Signed by: Daniel #2
+//Signed by: Daniel #3
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -18,7 +18,7 @@ int main()
 
 
 	tgui::Theme greyTheme;
-	greyTheme.load("resources/TransparentGrey.txt");
+	greyTheme.load("resources/TransparentGrey.txt");	
 
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
@@ -37,15 +37,10 @@ int main()
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising");
 			Fhndlr.Setscreen(win, gui, UsrName, Usertype);
-			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
+			//	!BREAKS CODE! DONT REMOVE, WIP.	->	//	gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
 			
 		}
-		/*else if(CurrentUser.validateLogin(UsrName, Pass))
-		{
-			std::cout << "login Success!\n";
-			win.create(sf::VideoMode(750, 750), "Instructor Advising");
-			Fhndlr.Setscreen(win, gui, UsrName);
-		}*/
+	
 		else
 		{
 			int MboxFailLogin1 = MessageBoxA(NULL, (LPCSTR)"Login failed\n Username or Password incorrect", (LPCSTR)"Login Error", MB_ICONWARNING | MB_RETRYCANCEL | MB_DEFBUTTON1);
@@ -78,8 +73,7 @@ int main()
 		
 		
 
-		win.clear();
-		
+		win.clear();	
 		gui.draw();
 		win.display();
 

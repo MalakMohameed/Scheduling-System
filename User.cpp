@@ -29,7 +29,7 @@ void User::setUserType(std::string UsrType)
 bool User::validateLogin(std::string usr, std::string pass)
 {
 	std::cout << "FUNC CALL!\n";
-	for (int i = 0; i < 18; i++)
+	for (int i = 0; i < 19; i++)
 	{
 		 if (usr==UserDB[i][0] && pass == UserDB[i][1])
 		{
