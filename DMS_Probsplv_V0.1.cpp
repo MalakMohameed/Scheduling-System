@@ -23,17 +23,20 @@ int main()
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
 
-	gui.get<tgui::Button>("Button1")->onPress([&gui, &win] {
+	std::string UsrName = gui.get<tgui::EditBox>("EditBox1")->getText().toStdString();
+	std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
+	
+
+	gui.get<tgui::Button>("Button1")->onPress([&gui, &win , UsrName , Pass] {
 
 		
-		std::string UsrName = gui.get<tgui::EditBox>("EditBox1")->getText().toStdString();
-
-		std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
 		
+		std::string Usertype = CurrentUser.getUserType();
 			
 		if (CurrentUser.validateLogin(UsrName,Pass))
 		{
-			std::string Usertype = CurrentUser.getUserType();
+			
+			std::cout << "Logged in as : " << Usertype << std::endl;
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising");
 			Fhndlr.Setscreen(win, gui, UsrName, Usertype);
@@ -56,6 +59,12 @@ int main()
 		
 		});
 
+	if (CurrentUser.getUserType() == "IN")
+	{
+		gui.get<tgui::Button>("Record")->onPress([&gui, &win, UsrName] {
+			Fhndlr.Setscreen(win, gui, UsrName, CurrentUser.getUserType(), Fhndlr.InstructorForms.one);
+			});
+	} 
 
 	while (win.isOpen())
 	{

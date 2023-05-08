@@ -10,19 +10,24 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 	{
 		if (scrnNo == InstructorForms.one)
 		{
-			//load form Instructor 1
+			gui.loadWidgetsFromFile(InstructorForms.one);
 		}
 		else if (scrnNo==InstructorForms.two)
 		{
-			//load form Instructor 2
+			gui.loadWidgetsFromFile(InstructorForms.two);
 		}
-		else {
-			//load default Form
+		else if (scrnNo == InstructorForms.three)
+		{
+			gui.loadWidgetsFromFile(InstructorForms.three);
+		}
+		else if (scrnNo == " ")
+		{
+			gui.loadWidgetsFromFile(Form.Instructor);
 		}
 	}
 	else if (Usertype.equalIgnoreCase(UtStudent))
 	{
-		//repeat what was done with Instructor form loader
+		gui.loadWidgetsFromFile(Form.Student);
 
 	}
 	
