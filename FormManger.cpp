@@ -1,7 +1,7 @@
 #include "FormManger.h"
 
 
-void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo="")
+void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo)
 {
 	
 	gui.removeAllWidgets();
