@@ -23,23 +23,21 @@ int main()
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
 
-	std::string UsrName = gui.get<tgui::EditBox>("EditBox1")->getText().toStdString();
-	std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
 	
 
-	gui.get<tgui::Button>("Button1")->onPress([&gui, &win , UsrName , Pass] {
+	gui.get<tgui::Button>("Button1")->onPress([&gui, &win] {
 
-		
-		
-		std::string Usertype = CurrentUser.getUserType();
+		std::string UsrName = gui.get<tgui::EditBox>("EditBox1")->getText().toStdString();
+		std::string Pass = gui.get<tgui::EditBox>("EditBox2")->getText().toStdString();
+
 			
 		if (CurrentUser.validateLogin(UsrName,Pass))
 		{
-			
-			std::cout << "Logged in as : " << Usertype << std::endl;
+			std::string Usertype = CurrentUser.getUserType();
 			std::cout << "login Success!\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising");
 			Fhndlr.Setscreen(win, gui, UsrName, Usertype);
+		
 			//	!BREAKS CODE! DONT REMOVE, WIP.	->	//	gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
 			
 		}
@@ -47,6 +45,7 @@ int main()
 		else
 		{
 			int MboxFailLogin1 = MessageBoxA(NULL, (LPCSTR)"Login failed\n Username or Password incorrect", (LPCSTR)"Login Error", MB_ICONWARNING | MB_RETRYCANCEL | MB_DEFBUTTON1);
+			
 			switch (MboxFailLogin1)
 			{
 			case IDCANCEL:
@@ -56,20 +55,47 @@ int main()
 			}
 		}
 
-		
+		std::cout << "Hena b2a\n";
+
+
+		if (CurrentUser.getUserType() == Fhndlr.UtInstructor)								//Instructor Screens and SubScreens code
+		{
+			std::cout << "User OPERATOR is a: " << CurrentUser.getUserType() << std::endl;
+
+			gui.get<tgui::Button>("Record")->onPress([&gui, &win] {
+
+				std::cout << "Record button was clicked!\n";
+				Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.one);
+
+				});
+			gui.get<tgui::Button>("Edit")->onPress([&gui, &win] {
+
+				std::cout << "Record button was clicked!\n";
+				Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.two);
+
+				});
+
+		}
+		else if (CurrentUser.getUserType() == Fhndlr.UtStudent)								//Student Screens and SubScreens code
+		{
+			gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
+
+		}
+
+
 		});
 
-	if (CurrentUser.getUserType() == "IN")
-	{
-		gui.get<tgui::Button>("Record")->onPress([&gui, &win, UsrName] {
-			Fhndlr.Setscreen(win, gui, UsrName, CurrentUser.getUserType(), Fhndlr.InstructorForms.one);
-			});
-	} 
+	
+
+
+	
+
+
 
 	while (win.isOpen())
 	{
 		sf::Event ev;
-
+		
 		while (win.pollEvent(ev))
 		{
 			gui.handleEvent(ev);

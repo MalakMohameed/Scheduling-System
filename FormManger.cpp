@@ -8,7 +8,8 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 	
 	if (Usertype.equalIgnoreCase(UtInstructor))
 	{
-		if (scrnNo == InstructorForms.one)
+		std::cout << "aloo : " << scrnNo << std::endl;
+		if (scrnNo.equalIgnoreCase(InstructorForms.one))
 		{
 			gui.loadWidgetsFromFile(InstructorForms.one);
 		}
@@ -20,7 +21,7 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		{
 			gui.loadWidgetsFromFile(InstructorForms.three);
 		}
-		else if (scrnNo == " ")
+		else 
 		{
 			gui.loadWidgetsFromFile(Form.Instructor);
 		}

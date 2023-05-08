@@ -17,11 +17,13 @@
 class FormManger
 {
 private:
-	const tgui::String UtInstructor = "IN";
-	const tgui::String UtStudent = "ST";
+	
 
 
 public:
+	
+	const tgui::String UtInstructor = "IN";
+	const tgui::String UtStudent = "ST";
 
 	struct
 	{

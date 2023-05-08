@@ -9,6 +9,7 @@ std::string User::getUsr()
 
 std::string User::getUserType()
 {
+	
 	return UserType;
 }
 
