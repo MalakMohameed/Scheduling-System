@@ -43,7 +43,7 @@ public:
 
 
 	
-	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML& gui, tgui::String User, tgui::String Usertype, tgui::String scrnNo);
+	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML& gui, tgui::String User, tgui::String Usertype, tgui::String scrnNo="");
 	
 };
 

@@ -1,7 +1,7 @@
 #include "FormManger.h"
 
 
-void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo)	
+void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo="")
 {
 	
 	gui.removeAllWidgets();
@@ -16,10 +16,14 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		{
 			//load form Instructor 2
 		}
+		else {
+			//load default Form
+		}
 	}
 	else if (Usertype.equalIgnoreCase(UtStudent))
 	{
 		//repeat what was done with Instructor form loader
+
 	}
 	
 
