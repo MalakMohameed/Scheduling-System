@@ -1,38 +1,26 @@
 #include "FormManger.h"
 
 
-void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype)
+void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo)	
 {
 	
 	gui.removeAllWidgets();
+	
 	if (Usertype.equalIgnoreCase(UtInstructor))
-	{		
-		try {
-			std::cout << "\nLogged in as Instructor\n";
-			gui.loadWidgetsFromFile(Form.Instructor);
-		}
-		catch (tgui::Exception &e)
+	{
+		if (scrnNo == InstructorForms.one)
 		{
-			std::cout << e.what() << std::endl << "Unable to load Instructor side Form File\n";
+			//load form Instructor 1
 		}
-
+		else if (scrnNo==InstructorForms.two)
+		{
+			//load form Instructor 2
+		}
 	}
-
 	else if (Usertype.equalIgnoreCase(UtStudent))
 	{
-		try {
-			std::cout << "\nLogged in as Student\n";
-			gui.loadWidgetsFromFile(Form.Student);
-			gui.get<tgui::Button>("USR_Button")->setText(User);
-		}
-		catch (tgui::Exception &e)
-		{
-			std::cout << e.what() << std::endl << "Unable to load Student side Form file\n";
-		}
+		//repeat what was done with Instructor form loader
 	}
-
-	else
-		std::cout << "Invalid Login\n";
 	
 
 }
