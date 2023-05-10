@@ -70,8 +70,8 @@ Picture.Picture2 {
 Label.Label2 {
     AutoSize = true;
     Position = (70, 150);
-    Size = (162.4, 24);
-    Text = "Editing schedule:";
+    Size = (177.4, 24);
+    Text = "Creating schedule:";
     TextSize = 18;
 
     Renderer {
@@ -286,7 +286,7 @@ CheckBox.thu1 {
     TextSize = 13;
 }
 
-CheckBox.ch4_4 {
+CheckBox.wed5 {
     Position = (560, 510);
     Renderer = &1;
     Size = (18, 18);
@@ -328,7 +328,7 @@ Button.Back_menu {
     TextSize = 13;
 }
 
-Button.SubmitE {
+Button.SubmitC {
     Position = (540, 600);
     Renderer = &2;
     Size = (140, 25.6667);

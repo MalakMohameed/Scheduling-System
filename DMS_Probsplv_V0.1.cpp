@@ -62,19 +62,24 @@ int main()
 		{
 			std::cout << "User OPERATOR is a: " << CurrentUser.getUserType() << std::endl;
 
-			gui.get<tgui::Button>("Record")->onPress([&gui, &win] {
+			gui.get<tgui::Button>("Create")->onPress([&gui, &win] {
 
-				std::cout << "Record button was clicked!\n";
-				Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.one);
+				std::cout << "Create button was clicked!\n";
+			Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.one);
 
 				});
 			gui.get<tgui::Button>("Edit")->onPress([&gui, &win] {
 
-				std::cout << "Record button was clicked!\n";
-				Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.two);
+				std::cout << "Edit button was clicked!\n";
+			Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.two);
 
 				});
+			gui.get<tgui::Button>("View")->onPress([&gui, &win] {
 
+				std::cout << "View button was clicked!\n";
+			Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(), Fhndlr.InstructorForms.three);
+
+				});
 		}
 		else if (CurrentUser.getUserType() == Fhndlr.UtStudent)								//Student Screens and SubScreens code
 		{
