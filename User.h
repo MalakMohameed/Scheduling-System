@@ -13,6 +13,8 @@ public:
 	void setUsr(std::string Usrname);
 	void setUserType(std::string UsrType);
 
+	bool isSignedIn();
+	void setSignInState(bool state);
 
 	bool validateLogin(std::string usr, std::string pass);
 	
@@ -20,6 +22,8 @@ public:
 private:
 	std::string UsrName;
 	std::string UserType;
+
+	bool signedIn = false;
 
 	std::string UserDB[18][3] =
 	{   {"Saif","admin",  "ST"},

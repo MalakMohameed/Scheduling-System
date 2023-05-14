@@ -1,7 +1,6 @@
 #include "Instructor.h"
 
+void Instructor::Create() {
 
-//std::string Instructor::setSchedule()
-//{
-//	return ;
-//}
+	
+}

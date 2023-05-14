@@ -23,6 +23,19 @@ void User::setUserType(std::string UsrType)
 	this->UserType = UsrType;
 }
 
+bool User::isSignedIn()
+{
+	if (signedIn)
+		return true;
+	else
+		return false;
+}
+
+void User::setSignInState(bool state)
+{
+	signedIn = state;
+}
+
 
 
 

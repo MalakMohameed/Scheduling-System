@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
+#include "User.h"
 #include <iostream>
 
 
@@ -18,12 +19,28 @@ class FormManger
 {
 private:
 	
+	int currentScreenIndex = 0;
 
+	
+
+		void showInMainMenu(tgui::GuiSFML& gui);
+		void showInCreateMenu(tgui::GuiSFML& gui);
+		void showInEditMenu(tgui::GuiSFML& gui);
+		void showInViewMenu(tgui::GuiSFML& gui);
+
+	
 
 public:
 	
 	const tgui::String UtInstructor = "IN";
 	const tgui::String UtStudent = "ST";
+
+	void setScreenIndex(int index);
+	int getScreenIndex();
+
+	void login(tgui::String Usr, tgui::String Pass);
+
+	
 
 	struct
 	{
@@ -50,6 +67,9 @@ public:
 
 	
 	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML& gui, tgui::String User, tgui::String Usertype, tgui::String scrnNo=" ");
+
+	
+	
 	
 };
 
