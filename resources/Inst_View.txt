@@ -1,27 +1,3 @@
-Renderer.1 {
-    BackgroundColor = #900005;
-    BackgroundColorDisabled = #E6E6E6;
-    BackgroundColorDown = #EBEBEB;
-    BackgroundColorHover = white;
-    BorderColor = #3C3C3C;
-    BorderColorDisabled = #7D7D7D;
-    BorderColorDown = black;
-    BorderColorFocused = #1E1EB4;
-    BorderColorHover = black;
-    Borders = (1, 1, 1, 1);
-    TextColor = #FFFAEA;
-    TextColorDisabled = #7D7D7D;
-    TextColorDown = black;
-    TextColorHover = black;
-    Texture = None;
-    TextureDisabled = None;
-    TextureDown = None;
-    TextureDownFocused = None;
-    TextureDownHover = None;
-    TextureFocused = None;
-    TextureHover = None;
-}
-
 Picture.Picture1 {
     Size = (750, 750);
 
@@ -43,7 +19,7 @@ Picture.Picture2 {
 
 Label.Label2 {
     AutoSize = true;
-    Position = (70, 150);
+    Position = (70, 160);
     Size = (169.4, 24);
     Text = "Viewing schedule:";
     TextSize = 18;
@@ -57,45 +33,33 @@ Label.Label2 {
     }
 }
 
-ComboBox.ComboBox1 {
-    ChangeItemOnScroll = false;
-    Items = ["Group 1", "Group 2", "Group 3"];
-    ItemsToDisplay = 0;
-    MaximumItems = 0;
-    Position = (70, 180);
-    Size = (160, 22);
-    TextSize = 13;
-
-    Renderer {
-        ArrowBackgroundColor = #F5F5F5;
-        ArrowBackgroundColorHover = white;
-        ArrowColor = #3C3C3C;
-        ArrowColorHover = black;
-        BackgroundColor = #F5F5F5;
-        BorderColor = black;
-        Borders = (1, 1, 1, 1);
-        Padding = (0, 0, 0, 0);
-        TextColor = #3C3C3C;
-        TextureArrow = None;
-        TextureArrowDisabled = None;
-        TextureArrowHover = None;
-        TextureBackground = None;
-        TextureBackgroundDisabled = None;
-    }
-}
-
 Button.Back_menu {
-    Position = (370, 600);
-    Renderer = &1;
+    Position = (560, 600);
     Size = (140, 25.6667);
     Text = Menu;
     TextSize = 13;
-}
 
-Button.SubmitV {
-    Position = (540, 600);
-    Renderer = &1;
-    Size = (140, 25.6667);
-    Text = Submit;
-    TextSize = 13;
+    Renderer {
+        BackgroundColor = #900005;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (1, 1, 1, 1);
+        TextColor = #FFFAEA;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
 }

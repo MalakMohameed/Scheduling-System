@@ -1,5 +1,10 @@
 #include "FormManger.h"
-
+#include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
+#include <Windows.h>
+#include <iostream>
+#include "User.h"
+#include "FormManger.h"
 
 void FormManger::setScreenIndex(int index)
 {
@@ -29,7 +34,7 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		{
 			showInCreateMenu(gui);
 			
-			setScreenIndex(11);
+			setScreenIndex(1);
 			
 		}
 		else if (scrnNo==InstructorForms.two)
@@ -90,7 +95,10 @@ void FormManger::showInCreateMenu(tgui::GuiSFML& gui)
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 		
 		showInMainMenu(gui);
+		});
 
+	gui.get<tgui::Button>("Submit")->onPress([&] {
+		int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved succesfully!", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
 		});
 }
 void FormManger::showInEditMenu(tgui::GuiSFML& gui)
@@ -100,8 +108,12 @@ void FormManger::showInEditMenu(tgui::GuiSFML& gui)
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 
 		showInMainMenu(gui);
-
 		});
+
+	gui.get<tgui::Button>("Submit")->onPress([&] {
+		int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved succesfully!", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+		});
+
 }
 void FormManger::showInViewMenu(tgui::GuiSFML& gui)
 {
