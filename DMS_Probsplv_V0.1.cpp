@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "User.h"
+#include "Instructor.h"
 #include "FormManger.h"
 
 User CurrentUser;
@@ -46,7 +47,6 @@ int main()
 		
 		});
 
-	
 
 	while (win.isOpen())
 	{
