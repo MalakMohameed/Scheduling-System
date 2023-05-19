@@ -78,12 +78,12 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string UsrName)
 		std::cout << "ALO 1 is working\n";
 		showInCreateMenu(gui, UsrName);
 		std::cout << "ALO 2 is working\n";
-	    int days[4] = { 23,35,40,11 };
-		std::cout << "ALO 3 is working\n";
-		Instructor table;
-		std::cout << "ALO 4 is working\n";
-	    table.writetimetable(UsrName, 79, days);
-		std::cout << "ALO 5 is working\n";
+	   // int days[4] = { 23,35,40,11 };
+		//std::cout << "ALO 3 is working\n";
+	//	Instructor table;
+		//std::cout << "ALO 4 is working\n";
+	  //  table.writetimetable(UsrName, 79, days);
+		//std::cout << "ALO 5 is working\n";
 		
 		});
 	gui.get<tgui::Button>("Edit")->onPress([&] {
@@ -99,8 +99,11 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string UsrName)
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string UsrName)
 {
+	std::cout << "\'showInCreateMenu()\' Function was called \n";
 	gui.removeAllWidgets();
+	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
+	std::cout << "Widgets Loaded from file \n";
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 		
 		showInMainMenu(gui,UsrName);
