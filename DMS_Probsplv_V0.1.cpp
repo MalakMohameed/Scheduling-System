@@ -1,4 +1,5 @@
-//Signed by: Daniel #4
+//Signed by: Daniel #7
+//Updated FormManger Class to include Usernames when showing menus.
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>

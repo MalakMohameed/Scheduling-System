@@ -23,10 +23,10 @@ private:
 
 	
 
-	void showInMainMenu(tgui::GuiSFML& gui, std::string UsrName);
-		void showInCreateMenu(tgui::GuiSFML& gui, std::string UsrName);
-		void showInEditMenu(tgui::GuiSFML& gui, std::string UsrName);
-		void showInViewMenu(tgui::GuiSFML& gui, std::string UsrName);
+	void showInMainMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
+		void showInCreateMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
+		void showInEditMenu(tgui::GuiSFML& gui, std::string Usr=NULL);
+		void showInViewMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
 
 	
 

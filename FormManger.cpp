@@ -26,6 +26,7 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 {
 	std::string usrName = User.toStdString();
 	std::cout << "SetScrn Function Called\n";
+	
 	gui.removeAllWidgets();
 	
 	if (Usertype.equalIgnoreCase(UtInstructor))
@@ -41,13 +42,13 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		}
 		else if (scrnNo==InstructorForms.two)
 		{
-		//	gui.loadWidgetsFromFile(InstructorForms.two);
-			showInEditMenu(gui, usrName);
+		
+			showInEditMenu(gui,  usrName);
 			setScreenIndex(12);
 		}
 		else if (scrnNo == InstructorForms.three)
 		{
-			//gui.loadWidgetsFromFile(InstructorForms.three);
+			
 
 			showInViewMenu(gui, usrName);
 
@@ -70,56 +71,62 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 
 }
 
-void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string UsrName)
+void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr)
 {
+	
 	gui.removeAllWidgets();
+	
 	gui.loadWidgetsFromFile(Form.Instructor);
-	gui.get<tgui::Button>("Create")->onPress([&] {
-		std::cout << "ALO 1 is working\n";
-		showInCreateMenu(gui, UsrName);
-		std::cout << "ALO 2 is working\n";
-	   // int days[4] = { 23,35,40,11 };
-		//std::cout << "ALO 3 is working\n";
-	//	Instructor table;
-		//std::cout << "ALO 4 is working\n";
-	  //  table.writetimetable(UsrName, 79, days);
-		//std::cout << "ALO 5 is working\n";
+	
+
+	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
+		
+		
+		std::cout << "->" << Usr << std::endl;
+		showInCreateMenu(gui, Usr);
 		
 		});
-	gui.get<tgui::Button>("Edit")->onPress([&] {
+	gui.get<tgui::Button>("Edit")->onPress([=,&gui] {
 
-		showInEditMenu(gui, UsrName);
+		std::cout << "->" << Usr << std::endl;
+		showInEditMenu(gui, Usr);
 
 		});
-	gui.get<tgui::Button>("View")->onPress([&] {
-
-		showInViewMenu(gui, UsrName);
+	gui.get<tgui::Button>("View")->onPress([=, &gui] {
+		std::cout << "->" << Usr << std::endl;
+		showInViewMenu(gui, Usr);
 
 		});
 }
-void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string UsrName)
+void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr)
 {
-	std::cout << "\'showInCreateMenu()\' Function was called \n";
+	
+	std::cout << "\'showInCreateMenu()\' Function was called with User as: " << Usr <<std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 		
-		showInMainMenu(gui,UsrName);
+		showInMainMenu(gui, Usr);
 		});
 
 	gui.get<tgui::Button>("Submit")->onPress([&] {
 		int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved succesfully!", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
 		});
 }
-void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string UsrName)
+
+
+void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string Usr)
 {
+	std::cout << "\'showInEditMenu()\' Function was called with User as: " << Usr << std::endl;
 	gui.removeAllWidgets();
+	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.two);
+	std::cout << "Widgets Loaded from file \n";
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 
-		showInMainMenu(gui, UsrName);
+		showInMainMenu(gui, Usr);
 		});
 
 	gui.get<tgui::Button>("Submit")->onPress([&] {
@@ -127,13 +134,18 @@ void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string UsrName)
 		});
 
 }
-void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string UsrName)
+
+
+void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr)
 {
+	std::cout << "\'showInViewMenu()\' Function was called with User as: " << Usr << std::endl;
 	gui.removeAllWidgets();
+	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.three);
+	std::cout << "Widgets Loaded from file \n";
 	gui.get<tgui::Button>("Back_menu")->onPress([&] {
 
-		showInMainMenu(gui, UsrName);
+		showInMainMenu(gui, Usr);
 
 		});
 }
