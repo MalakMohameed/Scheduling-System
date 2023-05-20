@@ -22,10 +22,11 @@ void FormManger::login(tgui::String Usr, tgui::String Pass)
 	
 }
 
-void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype, tgui::String scrnNo)
+void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype,std::string UserID ,tgui::String scrnNo)
 {
 	std::string usrName = User.toStdString();
 	std::cout << "SetScrn Function Called\n";
+	std::cout << "User ID: " << UserID << std::endl;
 	
 	gui.removeAllWidgets();
 	
@@ -35,7 +36,7 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		std::cout << "aloo : " << scrnNo << std::endl;
 		if (scrnNo.equalIgnoreCase(InstructorForms.one))
 		{
-			showInCreateMenu(gui, usrName);
+			showInCreateMenu(gui, usrName,UserID);
 			
 			setScreenIndex(1);
 			
@@ -43,20 +44,20 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 		else if (scrnNo==InstructorForms.two)
 		{
 		
-			showInEditMenu(gui,  usrName);
+			showInEditMenu(gui,  usrName, UserID);
 			setScreenIndex(12);
 		}
 		else if (scrnNo == InstructorForms.three)
 		{
 			
 
-			showInViewMenu(gui, usrName);
+			showInViewMenu(gui, usrName, UserID);
 
 			setScreenIndex(13);
 		}
 		else 
 		{
-			showInMainMenu(gui,usrName);
+			showInMainMenu(gui,usrName,UserID);
 			
 		}
 	}
@@ -71,44 +72,45 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 
 }
 
-void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr)
+void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
 {
 	
 	gui.removeAllWidgets();
 	
 	gui.loadWidgetsFromFile(Form.Instructor);
-	
+	std::cout << "User ID: " << UsrID << std::endl;
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
 		
 		
 		std::cout << "->" << Usr << std::endl;
-		showInCreateMenu(gui, Usr);
+		showInCreateMenu(gui, Usr, UsrID);
 		
 		});
 	gui.get<tgui::Button>("Edit")->onPress([=,&gui] {
 
 		std::cout << "->" << Usr << std::endl;
-		showInEditMenu(gui, Usr);
+		showInEditMenu(gui, Usr, UsrID);
 
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-		showInViewMenu(gui, Usr);
+		showInViewMenu(gui, Usr, UsrID);
 
 		});
 }
-void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr)
+void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
 {
 	
 	std::cout << "\'showInCreateMenu()\' Function was called with User as: " << Usr <<std::endl;
+	std::cout << "User ID: " << UsrID << std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
-	gui.get<tgui::Button>("Back_menu")->onPress([&] {
+	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 		
-		showInMainMenu(gui, Usr);
+		showInMainMenu(gui, Usr, UsrID);
 		});
 
 	gui.get<tgui::Button>("Submit")->onPress([&] {
@@ -117,16 +119,17 @@ void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr)
 }
 
 
-void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string Usr)
+void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrId)
 {
 	std::cout << "\'showInEditMenu()\' Function was called with User as: " << Usr << std::endl;
+	std::cout << "User ID: " << UsrId << std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.two);
 	std::cout << "Widgets Loaded from file \n";
-	gui.get<tgui::Button>("Back_menu")->onPress([&] {
+	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 
-		showInMainMenu(gui, Usr);
+		showInMainMenu(gui, Usr, UsrId);
 		});
 
 	gui.get<tgui::Button>("Submit")->onPress([&] {
@@ -136,16 +139,17 @@ void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string Usr)
 }
 
 
-void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr)
+void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrId )
 {
 	std::cout << "\'showInViewMenu()\' Function was called with User as: " << Usr << std::endl;
+	std::cout << "User ID: " << UsrId << std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.three);
 	std::cout << "Widgets Loaded from file \n";
-	gui.get<tgui::Button>("Back_menu")->onPress([&] {
+	gui.get<tgui::Button>("Back_menu")->onPress([=,&gui] {
 
-		showInMainMenu(gui, Usr);
+		showInMainMenu(gui, Usr, UsrId);
 
 		});
 }

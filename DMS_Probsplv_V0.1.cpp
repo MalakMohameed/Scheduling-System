@@ -1,5 +1,7 @@
-//Signed by: Daniel #7
-//Updated FormManger Class to include Usernames when showing menus.
+//Signed by: Daniel #8
+//Updated FormManger Class to now also Include UserIDs.
+//Also updated all User data being passed into Functions to now be passed by value instead of refrance which lead to User data getting
+//Corrupted after joining any screen.
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -29,7 +31,7 @@ int main()
 			gui.removeAllWidgets();
 			std::cout << "Login success\n";
 			win.create(sf::VideoMode(750, 750), "Student Advising System");
-			Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType());
+			Fhndlr.Setscreen(win, gui, CurrentUser.getUsr(), CurrentUser.getUserType(),CurrentUser.getUserID());
 			
 		}
 

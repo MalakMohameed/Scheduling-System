@@ -23,10 +23,10 @@ private:
 
 	
 
-	void showInMainMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
-		void showInCreateMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
-		void showInEditMenu(tgui::GuiSFML& gui, std::string Usr=NULL);
-		void showInViewMenu(tgui::GuiSFML& gui, std::string Usr = NULL);
+	void showInMainMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrId="");
+		void showInCreateMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrId="");
+		void showInEditMenu(tgui::GuiSFML& gui, std::string Usr=NULL, std::string UsrId="");
+		void showInViewMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrId="");
 
 	
 
@@ -66,7 +66,7 @@ public:
 
 
 	
-	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML& gui, tgui::String User, tgui::String Usertype, tgui::String scrnNo=" ");
+	void Setscreen(sf::RenderWindow& win, tgui::GuiSFML& gui, tgui::String User, tgui::String Usertype,std::string UserID ,tgui::String scrnNo=" ");
 
 	
 	
