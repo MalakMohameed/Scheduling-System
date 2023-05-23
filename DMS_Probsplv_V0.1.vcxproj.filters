@@ -24,12 +24,18 @@
     <ClCompile Include="FormManger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Instructor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FormManger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Instructor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
