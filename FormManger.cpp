@@ -8,7 +8,7 @@
 #include "FormManger.h"
 #include <fstream>
 
-Instructor schedule;
+cInstructor schedule;
 
 void FormManger::setScreenIndex(int index)
 {

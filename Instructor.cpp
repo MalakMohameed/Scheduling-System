@@ -8,10 +8,12 @@
 
 
 
-Instructor::Instructor() {
+cInstructor::cInstructor() {
 
 }
-void Instructor::writearray()
+
+
+void cInstructor::writearray()
 {
     int count = 0;
     for (int i = 0; i < 5; i++)
@@ -29,7 +31,7 @@ void Instructor::writearray()
 }
 
 
-void Instructor::writetimetable(std::string instructorName, std::string ID, int days[30])
+void cInstructor::writetimetable(std::string instructorName, std::string ID, int days[30])
 {
     std::ifstream Schedule("resources/Files/timetable.txt");
     std::ofstream schedule("resources/Files/timetable.txt",std::ios::app);
@@ -97,7 +99,7 @@ void Instructor::writetimetable(std::string instructorName, std::string ID, int 
 
 
 
-void Instructor::viewschedule(std::string name, std::string ID)
+void cInstructor::viewschedule(std::string name, std::string ID)
 {
     std::cout << "View schedule function was called by the user " << name + ID << '\n';
     std::ifstream read("resources/Files/timetable.txt");
@@ -149,7 +151,7 @@ void Instructor::viewschedule(std::string name, std::string ID)
     }
     else {
         std::cout << "User Not Found!\n";
-        int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\n First create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+        int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
         exit(0);
         read.close();
     }

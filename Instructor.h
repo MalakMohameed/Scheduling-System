@@ -7,13 +7,13 @@
 
 
 
-class Instructor :
+class cInstructor :
 	public User
 {
    
 public:
  
-    Instructor();
+    cInstructor();
 	void writearray();
     void writetimetable(std::string instructorName, std::string ID, int days[30]);
     void viewschedule(std::string name, std::string ID);
