@@ -8,12 +8,12 @@
 
 
 
-cInstructor::cInstructor() {
-
+Instructor::Instructor() {
+    std::cout << "Instructor class was called.\n";
 }
 
 
-void cInstructor::writearray()
+void Instructor::writearray()
 {
     int count = 0;
     for (int i = 0; i < 5; i++)
@@ -31,7 +31,7 @@ void cInstructor::writearray()
 }
 
 
-void cInstructor::writetimetable(std::string instructorName, std::string ID, int days[30])
+void Instructor::CreateSchedule(std::string instructorName, std::string ID, int days[30])
 {
     std::ifstream Schedule("resources/Files/timetable.txt");
     std::ofstream schedule("resources/Files/timetable.txt",std::ios::app);
@@ -90,7 +90,7 @@ void cInstructor::writetimetable(std::string instructorName, std::string ID, int
     }
 
     else if(ScheduleExist == 1) {
-        int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\n You can edit your schedule but you can't create a new one."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+        int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\nYou can edit your schedule but you can't create a new one."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
         schedule.close();
         exit(0);
     }
@@ -99,7 +99,7 @@ void cInstructor::writetimetable(std::string instructorName, std::string ID, int
 
 
 
-void cInstructor::viewschedule(std::string name, std::string ID)
+void Instructor::ViewSchedule(std::string name, std::string ID)
 {
     std::cout << "View schedule function was called by the user " << name + ID << '\n';
     std::ifstream read("resources/Files/timetable.txt");

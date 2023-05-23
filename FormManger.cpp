@@ -8,7 +8,7 @@
 #include "FormManger.h"
 #include <fstream>
 
-cInstructor schedule;
+
 
 void FormManger::setScreenIndex(int index)
 {
@@ -27,6 +27,7 @@ void FormManger::login(tgui::String Usr, tgui::String Pass)
 
 void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype,std::string UserID ,tgui::String scrnNo)
 {
+	Instructor schedule;
 	std::string usrName = User.toStdString();
 	std::cout << "SetScrn Function Called\n";
 
@@ -86,9 +87,10 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
 		///just default input to check if it works or not and it will be changed later on 
+		Instructor schedule;
 		int days[2] = { 22,31 };/////////
 		std::cout << "->" << Usr << std::endl;
-	    schedule.writetimetable(Usr, UsrID, days);/////////
+	    schedule.CreateSchedule(Usr, UsrID, days);/////////
 		showInCreateMenu(gui, Usr, UsrID);
 		
 		});
@@ -100,7 +102,8 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	    schedule.viewschedule(Usr, UsrID);
+	    Instructor schedule;
+	    schedule.ViewSchedule(Usr, UsrID);
 		showInViewMenu(gui, Usr, UsrID);
 		});
 }
