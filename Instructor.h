@@ -15,8 +15,8 @@ public:
  
     Instructor();
 	void writearray();
-    void writetimetable(std::string instructorName,int ID, int days[30]);
-    void setSchedule();
+    void writetimetable(std::string instructorName, std::string ID, int days[30]);
+    void viewschedule(std::string name, std::string ID);
 private:
     static const int column = 6;
     int timetable[5][column] =

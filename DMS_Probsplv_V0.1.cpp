@@ -10,6 +10,7 @@
 #include "User.h"
 #include "Instructor.h"
 #include "FormManger.h"
+#include <fstream>
 
 User CurrentUser;
 FormManger Fhndlr;
@@ -20,7 +21,7 @@ int main()
 	//George was here
 	sf::RenderWindow win(sf::VideoMode(750, 400), "Login", sf::Style::None);
 	tgui::Gui gui{ win };
-	
+
 
 	gui.loadWidgetsFromFile(Fhndlr.Form.Login);
 	

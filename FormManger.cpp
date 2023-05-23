@@ -6,6 +6,9 @@
 #include "User.h"
 #include "Instructor.h"
 #include "FormManger.h"
+#include <fstream>
+
+Instructor schedule;
 
 void FormManger::setScreenIndex(int index)
 {
@@ -26,14 +29,14 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 {
 	std::string usrName = User.toStdString();
 	std::cout << "SetScrn Function Called\n";
-	std::cout << "User ID: " << UserID << std::endl;
+
 	
 	gui.removeAllWidgets();
 	
 	if (Usertype.equalIgnoreCase(UtInstructor))
 	{
-		
-		std::cout << "aloo : " << scrnNo << std::endl;
+		std::ofstream schedule("resources/Files/timetable.txt", std::ios::app);
+	
 		if (scrnNo.equalIgnoreCase(InstructorForms.one))
 		{
 			showInCreateMenu(gui, usrName,UserID);
@@ -54,6 +57,7 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 			showInViewMenu(gui, usrName, UserID);
 
 			setScreenIndex(13);
+			
 		}
 		else 
 		{
@@ -81,22 +85,23 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	std::cout << "User ID: " << UsrID << std::endl;
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
-		
-		
+		///just default input to check if it works or not and it will be changed later on 
+		int days[2] = { 22,31 };/////////
 		std::cout << "->" << Usr << std::endl;
+	    schedule.writetimetable(Usr, UsrID, days);/////////
 		showInCreateMenu(gui, Usr, UsrID);
 		
 		});
-	gui.get<tgui::Button>("Edit")->onPress([=,&gui] {
-
+	gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
+	
 		std::cout << "->" << Usr << std::endl;
 		showInEditMenu(gui, Usr, UsrID);
 
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
+	    schedule.viewschedule(Usr, UsrID);
 		showInViewMenu(gui, Usr, UsrID);
-
 		});
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
@@ -146,10 +151,12 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.three);
+	
 	std::cout << "Widgets Loaded from file \n";
-	gui.get<tgui::Button>("Back_menu")->onPress([=,&gui] {
-
+	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
+	
 		showInMainMenu(gui, Usr, UsrId);
+	    
 
 		});
 }
