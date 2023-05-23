@@ -1,7 +1,7 @@
-//Signed by: Daniel #8
-//Updated FormManger Class to now also Include UserIDs.
-//Also updated all User data being passed into Functions to now be passed by value instead of refrance which lead to User data getting
-//Corrupted after joining any screen.
+//Signed by: Malak #9
+//Updated FormManger/ Instructor class / create and view fucntions.
+//Also updated the creation of the files.
+//no issues found.
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
