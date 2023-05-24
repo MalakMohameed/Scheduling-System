@@ -1,24 +1,28 @@
+#pragma once
+
+
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include <iostream>
-#include<string>
-#include "FormManger.h"
+#include <Windows.h>
+#include <string>
+#include <fstream>
+#include <iomanip>
 #include "User.h"
 
 
 
-class cInstructor :
-	public User
+class Instructor : public User
 {
    
 public:
- 
-    cInstructor();
-	void writearray();
-    void writetimetable(std::string instructorName, std::string ID, int days[30]);
+
+    void writearray();
+    void writetimetable(std::string instructorName, std::string ID, int days[]);
     void viewschedule(std::string name, std::string ID);
+
 private:
-    static const int column = 6;
+     static const int column = 6;
     int timetable[5][column] =
     { 11,21,31,41,51,61
      ,12,22,32,42,52,62

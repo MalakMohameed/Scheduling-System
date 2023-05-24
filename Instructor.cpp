@@ -1,17 +1,6 @@
-#include <SFML/Graphics.hpp>
-#include <Windows.h>
-#include <iostream>
+#pragma once
+
 #include "Instructor.h"
-#include <fstream>
-#include <iomanip>
-
-
-
-
-Instructor::Instructor() {
-    std::cout << "Instructor class was called.\n";
-}
-
 
 void Instructor::writearray()
 {
@@ -30,15 +19,14 @@ void Instructor::writearray()
     }
 }
 
-
-void Instructor::CreateSchedule(std::string instructorName, std::string ID, int days[30])
+void Instructor::writetimetable(std::string instructorName, std::string ID, int days[])
 {
     std::ifstream Schedule("resources/Files/timetable.txt");
     std::ofstream schedule("resources/Files/timetable.txt",std::ios::app);
     std::string CheckUser;
     bool ScheduleExist = 0;
 
-
+        
     while (!Schedule.eof())
     {
         getline(Schedule, CheckUser);
@@ -99,7 +87,7 @@ void Instructor::CreateSchedule(std::string instructorName, std::string ID, int 
 
 
 
-void Instructor::ViewSchedule(std::string name, std::string ID)
+void Instructor::viewschedule(std::string name, std::string ID)
 {
     std::cout << "View schedule function was called by the user " << name + ID << '\n';
     std::ifstream read("resources/Files/timetable.txt");
@@ -140,9 +128,9 @@ void Instructor::ViewSchedule(std::string name, std::string ID)
             break;
         }
 
-        else {
+        /*else {
             continue;
-        }
+        }*/
     }
 
     if (check == true) {
@@ -151,7 +139,7 @@ void Instructor::ViewSchedule(std::string name, std::string ID)
     }
     else {
         std::cout << "User Not Found!\n";
-        int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+        int MboxSubmitUserNotFound = MessageBoxA(NULL, (LPCSTR)"\nThere isn't any data found for this user.\nFirst create a schedule.", (LPCSTR)"User Not Found", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
         exit(0);
         read.close();
     }

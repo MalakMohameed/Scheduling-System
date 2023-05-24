@@ -1,18 +1,15 @@
-#include "FormManger.h"
-#include <SFML/Graphics.hpp>
-#include <TGUI/TGUI.hpp>
-#include <Windows.h>
-#include <iostream>
-#include "User.h"
-#include "Instructor.h"
-#include "FormManger.h"
-#include <fstream>
+#pragma once
 
+#include "FormManger.h"
+
+
+Instructor schedule;
 
 
 void FormManger::setScreenIndex(int index)
 {
 	currentScreenIndex = index;
+	
 }
 
 int FormManger::getScreenIndex()
@@ -27,7 +24,7 @@ void FormManger::login(tgui::String Usr, tgui::String Pass)
 
 void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype,std::string UserID ,tgui::String scrnNo)
 {
-	Instructor schedule;
+	
 	std::string usrName = User.toStdString();
 	std::cout << "SetScrn Function Called\n";
 
@@ -87,10 +84,10 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
 		///just default input to check if it works or not and it will be changed later on 
-		Instructor schedule;
-		int days[2] = { 22,31 };/////////
+		
+	
 		std::cout << "->" << Usr << std::endl;
-	    schedule.CreateSchedule(Usr, UsrID, days);/////////
+	    
 		showInCreateMenu(gui, Usr, UsrID);
 		
 		});
@@ -102,8 +99,8 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	    Instructor schedule;
-	    schedule.ViewSchedule(Usr, UsrID);
+	   
+	//    schedule.viewschedule(Usr, UsrID);
 		showInViewMenu(gui, Usr, UsrID);
 		});
 }
@@ -116,6 +113,9 @@ void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::stri
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
+	//int days[2] = { 22,31 };/////////
+	//schedule.writetimetable(Usr, UsrID, days);/////////
+
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 		
 		showInMainMenu(gui, Usr, UsrID);
@@ -156,6 +156,7 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.loadWidgetsFromFile(InstructorForms.three);
 	
 	std::cout << "Widgets Loaded from file \n";
+	//schedule.viewschedule(Usr, UsrId);
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 	
 		showInMainMenu(gui, Usr, UsrId);

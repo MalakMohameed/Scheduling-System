@@ -1,8 +1,9 @@
+#pragma once
+
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
 #include <iostream>
 
-#pragma once
 //
 class User
 {

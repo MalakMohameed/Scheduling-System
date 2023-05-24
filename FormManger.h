@@ -1,9 +1,13 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#pragma once
+
 #include <TGUI/TGUI.hpp>
 #include "User.h"
-
+#include <Windows.h>
+#include "Instructor.h"
+#include <fstream>
 #include <iostream>
 
 
