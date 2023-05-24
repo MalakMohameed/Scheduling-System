@@ -7,16 +7,14 @@
 
 
 
-class cInstructor :
+class Instructor :
 	public User
 {
    
 public:
- 
-    cInstructor();
 	void writearray();
-    void writetimetable(std::string instructorName, std::string ID, int days[30]);
-    void viewschedule(std::string name, std::string ID);
+    void CreateSchedule(std::string instructorName, std::string ID, int days[30]);
+    void ViewSchedule(std::string name, std::string ID);
 private:
     static const int column = 6;
     int timetable[5][column] =
@@ -26,4 +24,4 @@ private:
      ,14,24,34,44,54,64
      ,15,25,35,45,55,65 };
 };
-//Signed #9
+//Signed #10

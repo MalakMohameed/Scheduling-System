@@ -6,13 +6,6 @@
 #include <iomanip>
 
 
-
-
-Instructor::Instructor() {
-    std::cout << "Instructor class was called.\n";
-}
-
-
 void Instructor::writearray()
 {
     int count = 0;
@@ -157,4 +150,4 @@ void Instructor::ViewSchedule(std::string name, std::string ID)
     }
 
 }
-//Signed #9
+//Signed #10
