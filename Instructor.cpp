@@ -4,6 +4,11 @@
 #include "Instructor.h"
 #include <fstream>
 #include <iomanip>
+#include <TGUI/TGUI.hpp>
+#include<string>
+#include "FormManger.h"
+#include "User.h"
+
 
 
 void Instructor::writearray()
@@ -24,7 +29,7 @@ void Instructor::writearray()
 }
 
 
-void Instructor::CreateSchedule(std::string instructorName, std::string ID, int days[30])
+int Instructor::CreateSchedule(std::string instructorName, std::string ID, int days[30])
 {
     std::ifstream Schedule("resources/Files/timetable.txt");
     std::ofstream schedule("resources/Files/timetable.txt",std::ios::app);
@@ -83,16 +88,19 @@ void Instructor::CreateSchedule(std::string instructorName, std::string ID, int 
     }
 
     else if(ScheduleExist == 1) {
-        int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\nYou can edit your schedule but you can't create a new one."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+        int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\nYou can edit your schedule but you can't create a new one."), reinterpret_cast<LPCSTR>("User Schedule already created"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
         schedule.close();
-        exit(0);
+        return 0;
+        std::cout << "Break point\n";
+       
+   
     }
         
 }
 
 
 
-void Instructor::ViewSchedule(std::string name, std::string ID)
+int Instructor::ViewSchedule(std::string name, std::string ID)
 {
     std::cout << "View schedule function was called by the user " << name + ID << '\n';
     std::ifstream read("resources/Files/timetable.txt");
@@ -133,9 +141,6 @@ void Instructor::ViewSchedule(std::string name, std::string ID)
             break;
         }
 
-        else {
-            continue;
-        }
     }
 
     if (check == true) {
@@ -145,8 +150,8 @@ void Instructor::ViewSchedule(std::string name, std::string ID)
     else {
         std::cout << "User Not Found!\n";
         int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
-        exit(0);
-        read.close();
+        return 0;
+        
     }
 
 }

@@ -1,9 +1,7 @@
-#include <SFML/Graphics.hpp>
-#include <TGUI/TGUI.hpp>
-#include <iostream>
-#include<string>
-#include "FormManger.h"
-#include "User.h"
+#pragma once
+
+
+
 
 
 
@@ -13,8 +11,8 @@ class Instructor :
    
 public:
 	void writearray();
-    void CreateSchedule(std::string instructorName, std::string ID, int days[30]);
-    void ViewSchedule(std::string name, std::string ID);
+    int CreateSchedule(std::string instructorName, std::string ID, int days[30]);
+    int ViewSchedule(std::string name, std::string ID);
 private:
     static const int column = 6;
     int timetable[5][column] =

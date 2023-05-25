@@ -88,9 +88,10 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		///just default input to check if it works or not and it will be changed later on 
 		int days[2] = { 22,31 };/////////
 		std::cout << "->" << Usr << std::endl;
-	    schedule.CreateSchedule(Usr, UsrID, days);/////////
-		showInCreateMenu(gui, Usr, UsrID);
-		
+		if (schedule.CreateSchedule(Usr, UsrID, days) != 0)
+		{/////////
+			showInCreateMenu(gui, Usr, UsrID);
+		}
 		});
 	gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
 	
@@ -100,8 +101,10 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	    schedule.ViewSchedule(Usr, UsrID);
-		showInViewMenu(gui, Usr, UsrID);
+		if (schedule.ViewSchedule(Usr, UsrID) != 0)
+		{
+			showInViewMenu(gui, Usr, UsrID);
+		}
 		});
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
