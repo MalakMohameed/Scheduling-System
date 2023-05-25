@@ -1,4 +1,4 @@
-//Signed by: Malak #9
+//Signed by: Malak #10
 //Updated FormManger/ Instructor class / create and view fucntions.
 //Also updated the creation of the files.
 //no issues found.
@@ -9,6 +9,7 @@
 #include <iostream>
 #include "User.h"
 #include "Instructor.h"
+#include "Instructor.cpp"
 #include "FormManger.h"
 #include <fstream>
 
@@ -73,4 +74,4 @@ int main()
 
 	}
 }
-//Signed #9
+//Signed #10

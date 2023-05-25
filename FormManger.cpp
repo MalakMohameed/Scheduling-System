@@ -17,10 +17,10 @@ int FormManger::getScreenIndex()
 	return currentScreenIndex;
 }
 
-void FormManger::login(tgui::String Usr, tgui::String Pass)
-{
-	
-}
+//void FormManger::login(tgui::String Usr, tgui::String Pass)
+//{
+//	
+//}
 
 void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::String User, tgui::String Usertype,std::string UserID ,tgui::String scrnNo)
 {
@@ -85,7 +85,7 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
 		///just default input to check if it works or not and it will be changed later on 
 		
-	
+		int days[2] = { 22,31 };/////////
 		std::cout << "->" << Usr << std::endl;
 	    
 		showInCreateMenu(gui, Usr, UsrID);
@@ -100,7 +100,7 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
 	   
-	//    schedule.viewschedule(Usr, UsrID);
+	    schedule.viewschedule(Usr, UsrID);
 		showInViewMenu(gui, Usr, UsrID);
 		});
 }
@@ -113,8 +113,8 @@ void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::stri
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
-	//int days[2] = { 22,31 };/////////
-	//schedule.writetimetable(Usr, UsrID, days);/////////
+	int days[2] = { 22,31 };/////////
+	schedule.writetimetable(Usr, UsrID, days);/////////
 
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 		
@@ -156,7 +156,7 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.loadWidgetsFromFile(InstructorForms.three);
 	
 	std::cout << "Widgets Loaded from file \n";
-	//schedule.viewschedule(Usr, UsrId);
+	schedule.viewschedule(Usr, UsrId);
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 	
 		showInMainMenu(gui, Usr, UsrId);
@@ -164,6 +164,6 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 		});
 }
-//Signed #9
+//Signed #10
 
 

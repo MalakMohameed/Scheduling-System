@@ -1,8 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#pragma once
-
 #include <TGUI/TGUI.hpp>
 #include "User.h"
 #include <Windows.h>
@@ -43,7 +41,7 @@ public:
 	void setScreenIndex(int index);
 	int getScreenIndex();
 
-	void login(tgui::String Usr, tgui::String Pass);
+	//void login(tgui::String Usr, tgui::String Pass);
 
 	
 
@@ -78,4 +76,4 @@ public:
 	
 };
 
-//Signed #9
+//Signed #10

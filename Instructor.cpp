@@ -1,6 +1,17 @@
 #pragma once
 
 #include "Instructor.h"
+#include <SFML/Graphics.hpp>
+#include <TGUI/TGUI.hpp>
+#include <iostream>
+#include <Windows.h>
+#include <string>
+#include <fstream>
+#include <iomanip>
+
+
+
+
 
 void Instructor::writearray()
 {
@@ -145,4 +156,4 @@ void Instructor::viewschedule(std::string name, std::string ID)
     }
 
 }
-//Signed #9
+//Signed #10
