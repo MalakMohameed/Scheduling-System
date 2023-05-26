@@ -1,30 +1,4 @@
 Renderer.1 {
-    BackgroundColor = #F5F5F5;
-    BackgroundColorDisabled = #E6E6E6;
-    BackgroundColorHover = white;
-    BorderColor = #3C3C3C;
-    BorderColorDisabled = #7D7D7D;
-    BorderColorFocused = #1E1EB4;
-    BorderColorHover = black;
-    Borders = (1, 1, 1, 1);
-    CheckColor = #3C3C3C;
-    CheckColorDisabled = #7D7D7D;
-    CheckColorHover = black;
-    TextColor = #3C3C3C;
-    TextColorDisabled = #7D7D7D;
-    TextColorHover = black;
-    TextDistanceRatio = 0.2;
-    TextureChecked = None;
-    TextureCheckedDisabled = None;
-    TextureCheckedFocused = None;
-    TextureCheckedHover = None;
-    TextureUnchecked = None;
-    TextureUncheckedDisabled = None;
-    TextureUncheckedFocused = None;
-    TextureUncheckedHover = None;
-}
-
-Renderer.2 {
     BackgroundColor = #900005;
     BackgroundColorDisabled = #E6E6E6;
     BackgroundColorDown = #EBEBEB;
@@ -58,8 +32,8 @@ Picture.Picture1 {
 }
 
 Picture.Picture2 {
-    Position = (50, 208.823);
-    Size = (631, 338.764);
+    Position = (50, 198.823);
+    Size = (641, 338.764);
 
     Renderer {
         Texture = "fixed_table.png" Smooth;
@@ -83,227 +57,17 @@ Label.Label2 {
     }
 }
 
-CheckBox.sat1 {
-    Position = (120, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sat2 {
-    Position = (120, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sat3 {
-    Position = (120, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sat4 {
-    Position = (120, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sat5 {
-    Position = (120, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sun1 {
-    Position = (210, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sun2 {
-    Position = (210, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sun3 {
-    Position = (210, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sun4 {
-    Position = (210, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.sun5 {
-    Position = (210, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.mon5 {
-    Position = (330, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.mon4 {
-    Position = (330, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.mon3 {
-    Position = (330, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.mon2 {
-    Position = (330, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.mon1 {
-    Position = (330, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.tue5 {
-    Position = (440, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.tue4 {
-    Position = (440, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.tue3 {
-    Position = (440, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.tue2 {
-    Position = (440, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.tue1 {
-    Position = (440, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.wed4 {
-    Position = (550, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.wed3 {
-    Position = (550, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.wed2 {
-    Position = (550, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.wed1 {
-    Position = (550, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.thu5 {
-    Position = (650, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.thu4 {
-    Position = (650, 460);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.thu3 {
-    Position = (650, 400);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.thu2 {
-    Position = (650, 340);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.thu1 {
-    Position = (650, 280);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
-CheckBox.wed5 {
-    Position = (550, 520);
-    Renderer = &1;
-    Size = (18, 18);
-    TextSize = 13;
-}
-
 Button.Back_menu {
-    Position = (370, 600);
-    Renderer = &2;
+    Position = (370, 580);
+    Renderer = &1;
     Size = (140, 25.6667);
     Text = Menu;
     TextSize = 13;
 }
 
 Button.Submit {
-    Position = (540, 600);
-    Renderer = &2;
+    Position = (540, 580);
+    Renderer = &1;
     Size = (140, 25.6667);
     Text = Submit;
     TextSize = 13;

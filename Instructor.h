@@ -1,8 +1,5 @@
 #pragma once
-
-
-
-
+#include"User.h"
 
 
 class Instructor :
@@ -13,6 +10,7 @@ public:
 	void writearray();
     int CreateSchedule(std::string instructorName, std::string ID, int days[30]);
     int ViewSchedule(std::string name, std::string ID);
+    int* createCheckboxes(tgui::GuiSFML& gui);
 private:
     static const int column = 6;
     int timetable[5][column] =

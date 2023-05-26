@@ -8,7 +8,6 @@
 #include <iostream>
 #include "User.h"
 #include "Instructor.h"
-#include "Instructor.cpp"
 #include "FormManger.h"
 #include <fstream>
 

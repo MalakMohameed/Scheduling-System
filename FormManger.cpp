@@ -9,7 +9,7 @@
 #include <fstream>
 
 Instructor schedule;
-
+int* checkboxes;
 void FormManger::setScreenIndex(int index)
 {
 	currentScreenIndex = index;
@@ -85,14 +85,18 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	std::cout << "User ID: " << UsrID << std::endl;
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
-		///just default input to check if it works or not and it will be changed later on 
-		int days[2] = { 22,31 };/////////
+
 		std::cout << "->" << Usr << std::endl;
-		if (schedule.CreateSchedule(Usr, UsrID, days) != 0)
-		{/////////
-			showInCreateMenu(gui, Usr, UsrID);
+	    showInCreateMenu(gui, Usr, UsrID);
+		checkboxes = schedule.createCheckboxes(gui);
+		
+		/*for (int i = 0; i < 5; i++) {
+			dayss[i] = checkboxes[i];
 		}
+		delete[]checkboxes;*/
+		
 		});
+
 	gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
 	
 		std::cout << "->" << Usr << std::endl;
@@ -109,32 +113,37 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
 {
-	
-	std::cout << "\'showInCreateMenu()\' Function was called with User as: " << Usr <<std::endl;
+	std::cout << "'showInCreateMenu()' Function was called with User as: " << Usr << std::endl;
 	std::cout << "User ID: " << UsrID << std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
-	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
+	int dayss[3] = { 11,22,33 };
+	schedule.CreateSchedule(Usr, UsrID, dayss);
+	gui.get<tgui::Button>("Submit")->onPress([&] {
 		
-		showInMainMenu(gui, Usr, UsrID);
+	int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved successfully!", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+	
 		});
 
-	gui.get<tgui::Button>("Submit")->onPress([&] {
-		int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved succesfully!", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
+		showInMainMenu(gui, Usr, UsrID);
 		});
 }
 
 
+
 void FormManger::showInEditMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrId)
 {
+	
 	std::cout << "\'showInEditMenu()\' Function was called with User as: " << Usr << std::endl;
 	std::cout << "User ID: " << UsrId << std::endl;
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.two);
 	std::cout << "Widgets Loaded from file \n";
+
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 
 		showInMainMenu(gui, Usr, UsrId);
