@@ -1,6 +1,6 @@
-//Signed by: Malak #11
-//Fixed the Linker errors and Improved error boxes title and functionality, making the program return to the main menu
-//if an error occours in either the view or create menu instead of termenating the program.
+//Signed by: Malak #13
+//create schudle is DONE!
+//view schudle needs to be done
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -72,4 +72,4 @@ int main()
 
 	}
 }
-//Signed #11
+//Signed #13

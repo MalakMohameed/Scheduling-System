@@ -8,7 +8,7 @@ class Instructor :
    
 public:
 	void writearray();
-    int CreateSchedule(std::string instructorName, std::string ID, int days[30]);
+    void CreateSchedule(std::string instructorName, std::string ID, int days[30]);
     int ViewSchedule(std::string name, std::string ID);
     int* createCheckboxes(tgui::GuiSFML& gui);
 private:
@@ -20,4 +20,4 @@ private:
      ,14,24,34,44,54,64
      ,15,25,35,45,55,65 };
 };
-//Signed #10
+//Signed #13
