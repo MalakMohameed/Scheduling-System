@@ -27,6 +27,22 @@ void Instructor::writearray()
         }
     }
 }
+bool Instructor::CheckInst(std::string instructorName, std::string ID)
+{
+    std::ifstream Schedule("resources/Files/timetable.txt");
+    std::string CheckUser;
+    bool ScheduleExist = false;
+    while (std::getline(Schedule, CheckUser))
+    {
+        if (CheckUser.find(instructorName + ID + ":") != std::string::npos)
+        {
+            ScheduleExist = true;
+            std::cout << "User is Found!\n";
+            break;
+        }
+    }
+    return ScheduleExist;
+}
 void Instructor::CreateSchedule(std::string instructorName, std::string ID, int days[30])
 {
     std::ifstream Schedule("resources/Files/timetable.txt");
@@ -78,78 +94,8 @@ void Instructor::CreateSchedule(std::string instructorName, std::string ID, int 
         schedule << std::endl;
         schedule.close();
     }
-    else
-    {
-        int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\nYou can't create a new one."), reinterpret_cast<LPCSTR>("User Schedule already created"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
-        schedule.close();
-
-
-    }
 
 }
-
-
-
-
-
-
-
-int Instructor::ViewSchedule(std::string name, std::string ID)
-{
-    std::cout << "View schedule function was called by the user " << name + ID << '\n';
-    std::ifstream read("resources/Files/timetable.txt");
-    std::string output;
-    bool check = false;
-
-    while (!read.eof())
-    {
-        getline(read, output);
-        if (output.find(name + ID + ":") != std::string::npos)
-        {
-            check = true;
-            std::cout << "User Found!\n" << output << '\n';
-            for (int i = 0; i < 30; i++) {
-                read >> output;
-
-                if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
-                {
-                    std::cout << output << std::endl;
-                }
-                else if (stoi(output) == 65 || stoi(output) / 100 == 65)
-                {
-                    if (stoi(output) == 65)
-                    {
-                        break;
-                    }
-                    else if (stoi(output) / 100 == 65)
-                    {
-                        std::cout << output << std::endl;
-                        break;
-
-                    }
-                }
-
-
-            }
-
-            break;
-        }
-
-    }
-
-    if (check == true) {
-
-        read.close();
-    }
-    else {
-        std::cout << "User Not Found!\n";
-        int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
-        return 0;
-        
-    }
-
-}
-
 
 static const int column = 6;
 int timetable[5][column] = {
@@ -256,16 +202,10 @@ void saveTimetableValue(const std::string& checkboxName, int* values, const int&
 
          read.close();
      }
-     else {
-         std::cout << "User Not Found!\n";
-         int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
-         exit(0);
-
-     }
-
+     return 0;
  }
 
 
 
 
- //Signed #14
+ //Signed #15

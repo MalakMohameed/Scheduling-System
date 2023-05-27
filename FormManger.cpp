@@ -86,22 +86,35 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 	gui.get<tgui::Button>("Create")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	    showInCreateMenu(gui, Usr, UsrID);
-		});
+	if (schedule.CheckInst(Usr, UsrID) == 0) {
+		showInCreateMenu(gui, Usr, UsrID);
+	}
+	else
+	{
+		int MboxExistingData = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere is an existing data found for this user.\nYou can't create a new one."), reinterpret_cast<LPCSTR>("User Schedule already created"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
 
-	gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
+
+	}
+		});
+		
+
+
+	/*gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
 	
 		std::cout << "->" << Usr << std::endl;
 		showInEditMenu(gui, Usr, UsrID);
 
-		});
+		});*/
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	  showInViewMenu(gui, Usr, UsrID);
-	  schedule.ViewSchedule(Usr, UsrID, gui);
-	
-			
-		
+	if (schedule.CheckInst(Usr, UsrID) == 1) {
+		showInViewMenu(gui, Usr, UsrID);
+	}
+	else {
+		std::cout << "User Not Found!\n";
+		int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+
+	}
 		});
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
@@ -159,7 +172,7 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.removeAllWidgets();
 	std::cout << "Widgets Removed\n";
 	gui.loadWidgetsFromFile(InstructorForms.three);
-	
+	schedule.ViewSchedule(Usr, UsrId, gui);
 	std::cout << "Widgets Loaded from file \n";
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 	
@@ -168,6 +181,6 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 		});
 }
-//Signed #14
+//Signed #15
 
 

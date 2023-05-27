@@ -1,5 +1,6 @@
-//Signed by: Malak #14
+//Signed by: Malak #15
 //Instructor side is DONE!
+//Just cleaned the code and fixed some minor Errors.
 
 
 #include <SFML/Graphics.hpp>
@@ -72,4 +73,4 @@ int main()
 
 	}
 }
-//Signed #14
+//Signed #15
