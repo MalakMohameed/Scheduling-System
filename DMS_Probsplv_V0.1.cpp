@@ -1,6 +1,6 @@
-//Signed by: Malak #13
-//create schudle is DONE!
-//view schudle needs to be done
+//Signed by: Malak #14
+//Instructor side is DONE!
+
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -72,4 +72,4 @@ int main()
 
 	}
 }
-//Signed #13
+//Signed #14

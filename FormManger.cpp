@@ -97,10 +97,11 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-		if (schedule.ViewSchedule(Usr, UsrID) != 0)
-		{
-			showInViewMenu(gui, Usr, UsrID);
-		}
+	  showInViewMenu(gui, Usr, UsrID);
+	  schedule.ViewSchedule(Usr, UsrID, gui);
+	
+			
+		
 		});
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
@@ -167,6 +168,6 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 		});
 }
-//Signed #13
+//Signed #14
 
 

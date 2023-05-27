@@ -191,8 +191,81 @@ void saveTimetableValue(const std::string& checkboxName, int* values, const int&
  // Return a pointer to the static array
  return selectedValues;
     }
+ int Instructor::ViewSchedule(std::string name, std::string ID, tgui::GuiSFML& gui)
+ {
+     std::cout << "View schedule function was called by the user " << name + ID << '\n';
+     std::ifstream read("resources/Files/timetable.txt");
+     std::string output;
+     bool check = false;
+     int SelectedDays[30] = {};
+     while (!read.eof())
+     {
+         getline(read, output);
+         if (output.find(name + ID + ":") != std::string::npos)
+         {
+             check = true;
+             std::cout << "User Found!\n" << output << '\n';
+             for (int i = 0; i < 30; i++) {
+                 read >> output;
+
+                 if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
+                 {
+
+
+                     SelectedDays[i] = stoi(output);
+
+                 }
+                 else if (stoi(output) == 65 || stoi(output) / 100 == 65)
+                 {
+                     if (stoi(output) == 65)
+                     {
+                         break;
+                     }
+                     else if (stoi(output) / 100 == 65)
+                     {
+
+                         SelectedDays[i] = stoi(output);
+                         break;
+
+                     }
+                 }
+
+
+             }
+
+             break;
+         }
+
+     }
+
+     if (check == true) {
+         tgui::CheckBox::Ptr checkboxes[30];
+         int checkboxIndex = 0;
+         for (int i = 0; i < 30; i++) {
+
+             SelectedDays[i]; // Example timetable value
+             checkboxes[checkboxIndex] = tgui::CheckBox::create();
+             checkboxes[checkboxIndex]->setPosition(((checkboxIndex % 6) * 110) + 111, ((checkboxIndex / 6) * 60) + 255);
+             checkboxes[checkboxIndex]->setEnabled(false); // Make the checkboxes uneditable
+             bool setCheck = (SelectedDays[i] != 0);
+             checkboxes[checkboxIndex]->setChecked(setCheck);
+             gui.add(checkboxes[checkboxIndex]);
+             checkboxIndex++;
+
+         }
+
+         read.close();
+     }
+     else {
+         std::cout << "User Not Found!\n";
+         int MboxSubmitUserNotFound = MessageBoxA(nullptr, reinterpret_cast<LPCSTR>("\nThere isn't any data found for this user.\nFirst create a schedule."), reinterpret_cast<LPCSTR>("User Not Found"), MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+         exit(0);
+
+     }
+
+ }
 
 
 
 
- //Signed #13
+ //Signed #14
