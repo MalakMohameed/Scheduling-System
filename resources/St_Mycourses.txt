@@ -1,0 +1,357 @@
+Renderer.1 {
+    BackgroundColor = transparent;
+    BorderColor = #3C3C3C;
+    Borders = (0, 0, 0, 0);
+    TextColor = #3C3C3C;
+    TextureBackground = None;
+}
+
+Renderer.2 {
+    BackgroundColor = #F5F5F5;
+    BackgroundColorDisabled = #E6E6E6;
+    BackgroundColorDown = #EBEBEB;
+    BackgroundColorHover = white;
+    BorderColor = #3C3C3C;
+    BorderColorDisabled = #7D7D7D;
+    BorderColorDown = black;
+    BorderColorFocused = #1E1EB4;
+    BorderColorHover = black;
+    Borders = (1, 1, 1, 1);
+    TextColor = #3C3C3C;
+    TextColorDisabled = #7D7D7D;
+    TextColorDown = black;
+    TextColorHover = black;
+    Texture = None;
+    TextureDisabled = None;
+    TextureDown = None;
+    TextureDownFocused = None;
+    TextureDownHover = None;
+    TextureFocused = None;
+    TextureHover = None;
+}
+
+Picture.Picture1 {
+    Size = (750, 750);
+
+    Renderer {
+        Texture = "BG.png" Smooth;
+    }
+}
+
+Label.Label1 {
+    AutoSize = true;
+    Position = (50, 170);
+    Renderer = &1;
+    Size = (94.6, 20);
+    Text = "My courses:";
+    TextSize = 15;
+}
+
+TextArea.TextPanel1 {
+    Enabled = false;
+    HorizontalScrollbarPolicy = Never;
+    MaximumCharacters = 0;
+    Position = (60, 200);
+    Size = (368, 400);
+    Text = "Course DETAILS FOR STUDENT 'GET_STUDENT NAME'";
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = white;
+        BorderColor = #A0000A;
+        Borders = (3, 0, 0, 0);
+        CaretColor = black;
+        CaretWidth = 1;
+        DefaultTextColor = #A0A0A0;
+        Padding = (0, 0, 0, 0);
+        SelectedTextBackgroundColor = #006EFF;
+        SelectedTextColor = white;
+        TextColor = #3C3C3C;
+        TextureBackground = None;
+    }
+}
+
+BitmapButton.ST_BACKMENU {
+    Image = "backarrowIcon.png" Smooth;
+    ImageScaling = 2;
+    Position = (50, 140);
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = white;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #3C3C3C;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (0, 0, 0, 0);
+        TextColor = #3C3C3C;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+Button.STManageCourse {
+    Position = (70, 500);
+    Size = (120, 36.6667);
+    Text = "Manage Courses";
+    TextSize = 13;
+
+    Renderer {
+        BackgroundColor = #AD3636;
+        BackgroundColorDisabled = #E6E6E6;
+        BackgroundColorDown = #EBEBEB;
+        BackgroundColorHover = white;
+        BorderColor = #FFE3DD;
+        BorderColorDisabled = #7D7D7D;
+        BorderColorDown = black;
+        BorderColorFocused = #1E1EB4;
+        BorderColorHover = black;
+        Borders = (2, 2, 2, 2);
+        TextColor = white;
+        TextColorDisabled = #7D7D7D;
+        TextColorDown = black;
+        TextColorHover = black;
+        Texture = None;
+        TextureDisabled = None;
+        TextureDown = None;
+        TextureDownFocused = None;
+        TextureDownHover = None;
+        TextureFocused = None;
+        TextureHover = None;
+    }
+}
+
+ChildWindow.ManageCrs {
+    Position = (200, 170);
+    Size = (400, 300);
+    TitleAlignment = Center;
+    TitleButtons = None;
+    TitleTextSize = 13;
+    Visible = false;
+
+    Renderer {
+        BackgroundColor = #E6E6E6;
+        BorderBelowTitleBar = 1;
+        BorderColor = black;
+        Borders = (1, 1, 1, 1);
+        DistanceToSide = 3;
+        PaddingBetweenButtons = 1;
+        ShowTextOnTitleButtons = true;
+        TextureBackground = None;
+        TextureTitleBar = None;
+        TitleBarColor = #B43838;
+        TitleColor = #3C3C3C;
+
+        MaximizeButton {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDown = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = #3C3C3C;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+
+        MinimizeButton {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDown = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = #3C3C3C;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+
+        CloseButton {
+            BackgroundColor = #F5F5F5;
+            BackgroundColorDown = #EBEBEB;
+            BackgroundColorHover = white;
+            BorderColor = #3C3C3C;
+            BorderColorDown = black;
+            BorderColorHover = black;
+            Borders = (1, 1, 1, 1);
+            TextColor = #3C3C3C;
+            TextColorDown = black;
+            TextColorHover = black;
+            Texture = None;
+            TextureDisabled = None;
+            TextureDown = None;
+            TextureDownFocused = None;
+            TextureDownHover = None;
+            TextureFocused = None;
+            TextureHover = None;
+        }
+    }
+
+    Button.Exit {
+        Position = (300, 240);
+        Renderer = &2;
+        Size = (80, 20);
+        Text = Exit;
+        TextSize = 13;
+    }
+
+    Panel.DropPanel {
+        Position = (130, 50);
+        Size = (250, 180);
+
+        Renderer {
+            BackgroundColor = white;
+            BorderColor = black;
+            TextureBackground = None;
+        }
+    }
+
+    Button.StMnDrop {
+        Position = (10, 50);
+        Renderer = &2;
+        Size = (110, 22);
+        Text = "Drop Course";
+        TextSize = 13;
+    }
+
+    Button.StMnAdd {
+        Position = (10, 100);
+        Renderer = &2;
+        Size = (110, 22);
+        Text = "Register Course";
+        TextSize = 13;
+    }
+
+    Group.GroupDrop {
+        Position = (140, 60);
+        Size = (230, 150);
+        Visible = false;
+
+        Renderer {
+        }
+
+        ComboBox.DropCrsList {
+            ChangeItemOnScroll = false;
+            ItemsToDisplay = 0;
+            MaximumItems = 0;
+            Position = (10, 10);
+            Size = (160, 22);
+            TextSize = 13;
+
+            Renderer {
+                ArrowBackgroundColor = #F5F5F5;
+                ArrowBackgroundColorHover = white;
+                ArrowColor = #3C3C3C;
+                ArrowColorHover = black;
+                BackgroundColor = #F5F5F5;
+                BorderColor = black;
+                Borders = (1, 1, 1, 1);
+                Padding = (0, 0, 0, 0);
+                TextColor = #3C3C3C;
+                TextureArrow = None;
+                TextureArrowDisabled = None;
+                TextureArrowHover = None;
+                TextureBackground = None;
+                TextureBackgroundDisabled = None;
+            }
+        }
+
+        CheckBox.CheckBox1 {
+            Position = (10, 80);
+            Size = (18, 18);
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = #F5F5F5;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorHover = white;
+                BorderColor = #3C3C3C;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorFocused = #1E1EB4;
+                BorderColorHover = black;
+                Borders = (1, 1, 1, 1);
+                CheckColor = #3C3C3C;
+                CheckColorDisabled = #7D7D7D;
+                CheckColorHover = black;
+                TextColor = #3C3C3C;
+                TextColorDisabled = #7D7D7D;
+                TextColorHover = black;
+                TextDistanceRatio = 0.2;
+                TextureChecked = None;
+                TextureCheckedDisabled = None;
+                TextureCheckedFocused = None;
+                TextureCheckedHover = None;
+                TextureUnchecked = None;
+                TextureUncheckedDisabled = None;
+                TextureUncheckedFocused = None;
+                TextureUncheckedHover = None;
+            }
+        }
+
+        Label.Label2 {
+            Position = (40, 80);
+            Renderer = &1;
+            Size = (147.2, 18);
+            Text = "Agree To Drop Action";
+            TextSize = 13;
+        }
+
+        Button.StMtDropBtn {
+            Position = (10, 120);
+            Text = Submit;
+            TextSize = 13;
+
+            Renderer {
+                BackgroundColor = #AA3636;
+                BackgroundColorDisabled = #E6E6E6;
+                BackgroundColorDown = #EBEBEB;
+                BackgroundColorHover = white;
+                BorderColor = #3C3C3C;
+                BorderColorDisabled = #7D7D7D;
+                BorderColorDown = black;
+                BorderColorFocused = #1E1EB4;
+                BorderColorHover = black;
+                Borders = (1, 1, 1, 1);
+                TextColor = white;
+                TextColorDisabled = #7D7D7D;
+                TextColorDown = black;
+                TextColorHover = black;
+                Texture = None;
+                TextureDisabled = None;
+                TextureDown = None;
+                TextureDownFocused = None;
+                TextureDownHover = None;
+                TextureFocused = None;
+                TextureHover = None;
+            }
+        }
+    }
+}

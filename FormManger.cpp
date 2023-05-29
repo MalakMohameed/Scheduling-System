@@ -4,6 +4,8 @@
 
 
 Instructor schedule;
+Student STudent;
+
 
 
 void FormManger::setScreenIndex(int index)
@@ -65,10 +67,18 @@ void FormManger::Setscreen(sf::RenderWindow &win,tgui::GuiSFML &gui ,tgui::Strin
 	}
 	else if (Usertype.equalIgnoreCase(UtStudent))
 	{
-		gui.loadWidgetsFromFile(Form.Student);
-		gui.get<tgui::Button>("USR_Button")->setText(User);
-		gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
-
+		//gui.loadWidgetsFromFile(Form.Student);
+		//gui.get<tgui::Button>("USR_Button")->setText(User);
+		
+		//gui.get<tgui::Button>("USR_Button")->onPress([&win] {system("start https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs"); });
+		if (scrnNo == StudentForms.one)
+		{
+			showStCoursesMenu(gui, usrName, UserID);
+		}
+		else {
+			showStMainMenu(gui, usrName, UserID);
+		}
+		
 	}
 	
 
@@ -87,9 +97,10 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		
 		int days[2] = { 22,31 };/////////
 		std::cout << "->" << Usr << std::endl;
-	    
-		showInCreateMenu(gui, Usr, UsrID);
-		
+		if (schedule.CreateSchedule(Usr, UsrID, days) != 0)
+		{/////////
+			showInCreateMenu(gui, Usr, UsrID);
+		}
 		});
 	gui.get<tgui::Button>("Edit")->onPress([=, &gui] {
 	
@@ -99,14 +110,14 @@ void FormManger::showInMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 		});
 	gui.get<tgui::Button>("View")->onPress([=, &gui] {
 		std::cout << "->" << Usr << std::endl;
-	   
-	    schedule.viewschedule(Usr, UsrID);
-		showInViewMenu(gui, Usr, UsrID);
+		if (schedule.ViewSchedule(Usr, UsrID) != 0)
+		{
+			showInViewMenu(gui, Usr, UsrID);
+		}
 		});
 }
 void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
 {
-	
 	std::cout << "\'showInCreateMenu()\' Function was called with User as: " << Usr <<std::endl;
 	std::cout << "User ID: " << UsrID << std::endl;
 	gui.removeAllWidgets();
@@ -114,7 +125,7 @@ void FormManger::showInCreateMenu(tgui::GuiSFML& gui, std::string Usr, std::stri
 	gui.loadWidgetsFromFile(InstructorForms.one);
 	std::cout << "Widgets Loaded from file \n";
 	int days[2] = { 22,31 };/////////
-	schedule.writetimetable(Usr, UsrID, days);/////////
+	schedule.CreateSchedule(Usr, UsrID, days);/////////
 
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 		
@@ -156,13 +167,100 @@ void FormManger::showInViewMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 	gui.loadWidgetsFromFile(InstructorForms.three);
 	
 	std::cout << "Widgets Loaded from file \n";
-	schedule.viewschedule(Usr, UsrId);
+	schedule.ViewSchedule(Usr, UsrId);
 	gui.get<tgui::Button>("Back_menu")->onPress([=, &gui] {
 	
 		showInMainMenu(gui, Usr, UsrId);
 	    
 
 		});
+}
+void FormManger::showStMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
+{
+	gui.loadWidgetsFromFile(Form.Student);
+	gui.get<tgui::Button>("SSO_MAIL")->onPress([] {
+		system("start OUTLOOK.EXE");
+		});
+	gui.get<tgui::BitmapButton>("ST_COURSES")->onPress([=, &gui] {
+
+		std::cout << "My Courses Has been pressed\n";
+		
+		showStCoursesMenu(gui, Usr, UsrID);
+		});
+	gui.get<tgui::BitmapButton>("ST_SCHEDULE")->onPress([] {
+
+		std::cout << "My Schedule Has been pressed\n";	
+
+		});
+
+}
+void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
+{
+	gui.loadWidgetsFromFile(StudentForms.one);
+	std::cout << "ID: " << UsrID << std::endl;
+	gui.get<tgui::BitmapButton>("ST_BACKMENU")->onPress([=, &gui] {
+
+		showStMainMenu(gui, Usr, UsrID);
+
+		});
+	STudent.getStudentSubjects(UsrID);
+	STudent.getStudentGPA(UsrID);	
+	STudent.getStudentName(UsrID);
+
+	
+	std::string Courses;
+	for (const auto& crs : STudent.getStudentSubjects(UsrID))
+	{
+		Courses += '\n' + crs + '\n';
+	}
+
+	std::string CoursePanelSTText = "\nStudent Full Name : " + STudent.getStudentName(UsrID) + "\n\nStudent GPA : " + STudent.getStudentGPA(UsrID) + "\n\nEnrolled  Courses:-\n"   +  Courses+'\n';
+	
+	gui.get<tgui::TextArea>("TextPanel1")->setText(CoursePanelSTText);
+
+
+
+	gui.get<tgui::Button>("STManageCourse")->onPress([=, &gui]
+		{
+
+			std::cout << "ManageAvil is " << ManageAvil << '\n';
+			if (ManageAvil == false) {
+				ManageAvil = true;
+				std::cout << "ManageAvil is " << ManageAvil << '\n';
+				std::cout << "Child Win. created.\n";
+				gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(true);
+				std::cout << "Child Win. Visible.\n";
+
+				gui.get<tgui::Button>("StMnDrop")->onPress([=,&gui]{
+
+					gui.get<tgui::Group>("GroupDrop")->setVisible(true);
+					gui.get<tgui::ComboBox>("DropCrsList")->addItem("-No Courses Avil-");
+
+
+					for (const auto& Crs : STudent.getStudentSubjects(UsrID))
+					{
+						gui.get<tgui::ComboBox>("DropCrsList")->addItem(Crs);
+					}
+
+					});
+
+				
+				gui.get<tgui::Button>("Exit")->onPress([&] {
+
+					ManageAvil = false;
+					std::cout << "ManageAvil is " << ManageAvil << '\n';
+					gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(false);
+					gui.get<tgui::Group>("GroupDrop")->setVisible(false);
+					
+					});
+			}
+			else
+			{
+				int MboxFailLogin1 = MessageBoxA(NULL, (LPCSTR)"You Already Have The Manage Courses Window Open", (LPCSTR)" Manage Courses", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+			}
+
+		});
+
 }
 //Signed #10
 

@@ -3,6 +3,10 @@
 
 
 #include "User.h"
+#pragma once
+
+
+
 
 
 
@@ -15,8 +19,8 @@ public:
  
    
 	void writearray();
-    void writetimetable(std::string instructorName, std::string ID, int days[]);
-    void viewschedule(std::string name, std::string ID);
+    int CreateSchedule(std::string instructorName, std::string ID, int days[30]);
+    int ViewSchedule(std::string name, std::string ID);
 private:
      static const int column = 6;
     int timetable[5][column] =

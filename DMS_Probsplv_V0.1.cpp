@@ -1,7 +1,6 @@
-//Signed by: Malak #10
-//Updated FormManger/ Instructor class / create and view fucntions.
-//Also updated the creation of the files.
-//no issues found.
+//Signed by: Malak #11
+//Fixed the Linker errors and Improved error boxes title and functionality, making the program return to the main menu
+//if an error occours in either the view or create menu instead of termenating the program.
 
 #include <SFML/Graphics.hpp>
 #include <TGUI/TGUI.hpp>
@@ -74,4 +73,4 @@ int main()
 
 	}
 }
-//Signed #10
+//Signed #11
