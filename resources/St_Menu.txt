@@ -8,7 +8,7 @@ Picture.Picture1 {
 }
 
 BitmapButton.ST_COURSES {
-    Image = "../../Problem-Solving-Legit-V2-PLEASE WORK/Problem-Solving-Legit/resources/StEditCourseIcon.png" Smooth;
+    Image = "StEditCourseIcon.png" Smooth;
     ImageScaling = 1;
     Position = (190, 320);
     Size = (120, 100);
@@ -40,7 +40,7 @@ BitmapButton.ST_COURSES {
 }
 
 BitmapButton.ST_SCHEDULE {
-    Image = "../../Problem-Solving-Legit-V2-PLEASE WORK/Problem-Solving-Legit/resources/StViewSchduleIcon.png" Smooth;
+    Image = "StViewSchduleIcon.png" Smooth;
     ImageScaling = 1;
     Position = (410, 320);
     Size = (120, 100);
