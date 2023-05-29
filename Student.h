@@ -1,6 +1,7 @@
 #pragma once
 
 #include "User.h"
+#include <Windows.h>
 
 class Student :
     public User

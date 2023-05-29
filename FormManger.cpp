@@ -233,6 +233,8 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 
 				gui.get<tgui::Button>("StMnDrop")->onPress([=,&gui]{
 
+					gui.get<tgui::ComboBox>("DropCrsList")->removeAllItems();
+					gui.get<tgui::Label>("DrpErrMsg")->setVisible(false);
 					gui.get<tgui::Group>("GroupDrop")->setVisible(true);
 					gui.get<tgui::ComboBox>("DropCrsList")->addItem("-No Courses Avil-");
 
@@ -241,6 +243,23 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 					{
 						gui.get<tgui::ComboBox>("DropCrsList")->addItem(Crs);
 					}
+
+					gui.get<tgui::Button>("StMtDropBtn")->onPress([=, &gui] {
+						
+					
+						if (gui.get<tgui::CheckBox>("DrpAccept")->isChecked())
+						{
+							STudent.dropCourse(UsrID, (gui.get<tgui::ComboBox>("DropCrsList")->getSelectedItem()).toStdString());
+							gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(false);
+						}
+						else
+						{
+							gui.get<tgui::Label>("DrpErrMsg")->setVisible(true);
+						}
+
+						});
+
+
 
 					});
 

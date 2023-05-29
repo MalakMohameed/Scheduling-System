@@ -60,6 +60,16 @@ std::string Student::getStudentName(std::string ID)
 
 void Student::dropCourse(std::string ID, std::string courseCode)
 {
+	for (int i = 0; i < (sizeof(StudentDB) / sizeof(StudentDB[0][0])); i++)
+	{
+		if (StudentDB[i][0] == ID)
+		{
+			std::cout << courseCode << "Dropping\n";
+			StudentDB[i][3].erase(StudentDB[i][3].find(courseCode), courseCode.length()+1);
+		}
+	}
+	std::stringstream box_message;
+	int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nYour submission has been saved succesfully!\n", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
 
-
+	
 }
