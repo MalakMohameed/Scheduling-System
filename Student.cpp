@@ -19,17 +19,17 @@ std::vector<std::string> Student::getStudentSubjects(std::string ID)
 				while (std::getline(ss, str, '/'))
 				{
 					std::cout << str << std::endl;
-					courses[j]=str;
+					courses[j] = str;
 					break;
 				}
 			}
-			
+
 			return courses;
 
 		}
 		else std::cout << "Student Not In DataBase, Contact SSO\n";
 	}
-	
+
 }
 
 std::string Student::getStudentGPA(std::string ID)
@@ -39,7 +39,7 @@ std::string Student::getStudentGPA(std::string ID)
 	{
 		if (StudentDB[i][0] == ID)
 		{
-			std::cout << "Student GPA found:" <<StudentDB[i][2] << '\n';
+			std::cout << "Student GPA found:" << StudentDB[i][2] << '\n';
 			return StudentDB[i][2];
 		}
 	}
@@ -65,7 +65,7 @@ void Student::dropCourse(std::string ID, std::string courseCode)
 		if (StudentDB[i][0] == ID)
 		{
 			std::cout << courseCode << "Dropping\n";
-			StudentDB[i][3].erase(StudentDB[i][3].find(courseCode), courseCode.length()+1);
+			StudentDB[i][3].erase(StudentDB[i][3].find(courseCode), courseCode.length() + 1);
 		}
 	}
 	std::stringstream box_message;
@@ -73,3 +73,4 @@ void Student::dropCourse(std::string ID, std::string courseCode)
 
 	
 }
+//Signed #16
