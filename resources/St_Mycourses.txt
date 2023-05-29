@@ -284,8 +284,8 @@ ChildWindow.ManageCrs {
             }
         }
 
-        CheckBox.CheckBox1 {
-            Position = (10, 80);
+        CheckBox.DrpAccept {
+            Position = (10, 60);
             Size = (18, 18);
             TextSize = 13;
 
@@ -316,8 +316,8 @@ ChildWindow.ManageCrs {
             }
         }
 
-        Label.Label2 {
-            Position = (40, 80);
+        Label.DrpAcceptMsg {
+            Position = (40, 60);
             Renderer = &1;
             Size = (147.2, 18);
             Text = "Agree To Drop Action";
@@ -351,6 +351,22 @@ ChildWindow.ManageCrs {
                 TextureDownHover = None;
                 TextureFocused = None;
                 TextureHover = None;
+            }
+        }
+
+        Label.DrpErrMsg {
+            Position = (40, 82);
+            Size = (163.6, 24);
+            Text = "You Must Agree in Order To Drop course, Contact SSO for more info.";
+            TextSize = 9;
+            Visible = false;
+
+            Renderer {
+                BackgroundColor = transparent;
+                BorderColor = #3C3C3C;
+                Borders = (0, 0, 0, 0);
+                TextColor = #FF0018;
+                TextureBackground = None;
             }
         }
     }
