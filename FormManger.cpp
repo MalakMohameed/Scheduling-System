@@ -6,7 +6,7 @@
 #include <iostream>
 #include "User.h"
 #include "Instructor.h"
-#include "Instructor.cpp"
+//#include "Instructor.cpp"
 #include "FormManger.h"
 #include "Student.h"
 //#include "Student.cpp"
@@ -245,10 +245,13 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 	{
 		Courses += '\n' + crs + '\n';
 	}
+	auto updateStCrsPnlTxt = [=]()
+	{
+		std::string CoursePanelSTText = "\nStudent Full Name : " + STudent.getStudentName(UsrID) + "\n\nStudent GPA : " + STudent.getStudentGPA(UsrID) + "\n\nEnrolled  Courses:-\n" + Courses + '\n';
+		return CoursePanelSTText;
+	};
 
-	std::string CoursePanelSTText = "\nStudent Full Name : " + STudent.getStudentName(UsrID) + "\n\nStudent GPA : " + STudent.getStudentGPA(UsrID) + "\n\nEnrolled  Courses:-\n" + Courses + '\n';
-
-	gui.get<tgui::TextArea>("TextPanel1")->setText(CoursePanelSTText);
+	gui.get<tgui::TextArea>("TextPanel1")->setText(updateStCrsPnlTxt());
 
 
 
@@ -270,19 +273,26 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 		gui.get<tgui::Group>("GroupDrop")->setVisible(true);
 		gui.get<tgui::ComboBox>("DropCrsList")->addItem("-No Courses Avil-");
 
+		auto UpdateDropCombo = [&]() {
+			
+			for (const auto& Crs : STudent.getStudentSubjects(UsrID))
+			{
+				gui.get<tgui::ComboBox>("DropCrsList")->addItem(Crs);
+			}
+		};
 
-		for (const auto& Crs : STudent.getStudentSubjects(UsrID))
-		{
-			gui.get<tgui::ComboBox>("DropCrsList")->addItem(Crs);
-		}
+		UpdateDropCombo();
 
-		gui.get<tgui::Button>("StMtDropBtn")->onPress([=, &gui] {
+		gui.get<tgui::Button>("StMtDropBtn")->onPress([=, &gui,&UpdateDropCombo] {
 
 
 			if (gui.get<tgui::CheckBox>("DrpAccept")->isChecked())
 			{
 				STudent.dropCourse(UsrID, (gui.get<tgui::ComboBox>("DropCrsList")->getSelectedItem()).toStdString());
+				std::cout << "Crs Dropped  Successfully\n";
 				gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(false);
+				gui.get<tgui::TextArea>("TextPanel1")->setText(updateStCrsPnlTxt());
+				ManageAvil = false;
 			}
 			else
 			{

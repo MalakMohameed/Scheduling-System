@@ -12,10 +12,10 @@
 #include <iostream>
 #include "User.h"
 #include "Instructor.h"
-//#include "Instructor.cpp"
+#include "Instructor.cpp"
 #include "FormManger.h"
 #include "Student.h"
-#include "Student.cpp"
+//#include "Student.cpp"
 #include <fstream>
 
 User CurrentUser;
