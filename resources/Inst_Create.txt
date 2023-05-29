@@ -32,8 +32,8 @@ Picture.Picture1 {
 }
 
 Picture.Picture2 {
-    Position = (50, 208.823);
-    Size = (631, 338.764);
+    Position = (50, 198.823);
+    Size = (641, 338.764);
 
     Renderer {
         Texture = "fixed_table.png" Smooth;
@@ -58,7 +58,7 @@ Label.Label2 {
 }
 
 Button.Back_menu {
-    Position = (370, 600);
+    Position = (370, 580);
     Renderer = &1;
     Size = (140, 25.6667);
     Text = Menu;
@@ -66,7 +66,7 @@ Button.Back_menu {
 }
 
 Button.Submit {
-    Position = (540, 600);
+    Position = (540, 580);
     Renderer = &1;
     Size = (140, 25.6667);
     Text = Submit;
