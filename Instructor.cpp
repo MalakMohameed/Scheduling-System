@@ -234,7 +234,7 @@ std::string Instructor::getInstructorSubject(std::string ID)
 }
 
 
-std::string* Instructor::AvilableDays(std::string CrsID)
+int* Instructor::AvilableDays(std::string CrsID)
 {
 
     std::ifstream read("resources/Files/timetable.txt");
@@ -249,7 +249,7 @@ std::string* Instructor::AvilableDays(std::string CrsID)
     while (!read.eof())
     {
         getline(read, output);
-        if (output.find(name + ID + getInstructorSubjecCode(CrsID) + ":") != std::string::npos)
+        if (output.find(name + ID + CrsID + ":") != std::string::npos)
         {
             check = true;
             std::cout << "User Found!\n" << output << '\n';
@@ -257,8 +257,7 @@ std::string* Instructor::AvilableDays(std::string CrsID)
                 read >> output;
 
                 if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
-                {
-
+                { 
 
                     SelectedDays[i] = stoi(output);
 
@@ -296,26 +295,27 @@ std::string* Instructor::AvilableDays(std::string CrsID)
     read.close();
 
 }
-std::string Instructor::getInstructorSubjecCode(std::string CrsID)
-{
-
-    std::string courseID;
-
-    for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
-    {
-        if (InstructorDB[i][2] == CrsID)
-        {
-
-            courseID = InstructorDB[i][2];
-            return courseID;
-
-        }
-        else {
-            std::cout << "Instructor Not In DataBase, Contact SSO\n";
-        }
-    }
-
-}
+//
+//std::string Instructor::getInstructorSubjecCode(std::string CrsID)
+//{
+//
+//    std::string courseID;
+//
+//    for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
+//    {
+//        if (InstructorDB[i][2] == CrsID)
+//        {
+//
+//            courseID = InstructorDB[i][2];
+//            return courseID;
+//
+//        }
+//        else {
+//            std::cout << " getInstructorSubjecCode Instructor Not In DataBase, Contact SSO\n";
+//        }
+//    }
+//
+//}
 
 std::string Instructor::getInstructorName(std::string CrsID)
 {
@@ -324,7 +324,7 @@ std::string Instructor::getInstructorName(std::string CrsID)
 
     for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
     {
-        if (InstructorDB[i][0] == CrsID)
+        if (InstructorDB[i][2] == CrsID)
         {
 
             InstructorName = InstructorDB[i][0];
@@ -332,7 +332,7 @@ std::string Instructor::getInstructorName(std::string CrsID)
 
         }
         else {
-            std::cout << "Instructor Not In DataBase, Contact SSO\n";
+            std::cout << "getInstructorName Instructor Not In DataBase, Contact SSO\n";
         }
     }
 
@@ -348,12 +348,12 @@ std::string Instructor::getInstructorID(std::string CrsID)
         if (InstructorDB[i][2] == CrsID)
         {
 
-            InstructorID = InstructorDB[i][2];
+            InstructorID = InstructorDB[i][1];
             return InstructorID;
 
         }
         else {
-            std::cout << "Instructor Not In DataBase, Contact SSO\n";
+            std::cout << "getInstructorID Instructor Not In DataBase, Contact SSO\n";
         }
     }
 

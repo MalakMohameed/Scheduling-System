@@ -13,10 +13,10 @@ public:
     int* createCheckboxes(tgui::GuiSFML& gui);
     std::string getInstructorSubject(std::string ID);
     int ViewSchedule(std::string name, std::string ID, tgui::GuiSFML& gui);
-    std::string getInstructorSubjecCode(std::string CrsID);
+   /* std::string getInstructorSubjecCode(std::string CrsID);*/
    std::string getInstructorID(std::string CrsID);
     std::string getInstructorName(std::string CrsID);
-    std::string* AvilableDays(std::string CrsID);
+    int* AvilableDays(std::string CrsID);
 
 private:
 

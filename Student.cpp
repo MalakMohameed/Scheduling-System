@@ -73,23 +73,26 @@ void Student::dropCourse(std::string ID, std::string courseCode)
 
 	
 }
+
 void Student::createStSchdl(std::string ID, std::string course)
 {
 	Instructor instructor;
-
+	char buffer[5000];
 	std::string CrsINAvilDays[5][6];
-	std::string ay7aga[30] = instructor.AvilableDays(course);
+	int* ay7aga =  instructor.AvilableDays(course);
+	std:: cout<< ay7aga << "\n";
 
-	for (int i =0; i < 5; i++)
-	{
-		for (int j =0; j<6; j++)
-		{
-			for (int k =0;k<30 ;k++)
-			{
-
-			}
-		}
-	}
+	//for (int i =0; i < 5; i++)
+	//{
+	//	for (int j =0; j<6; j++)
+	//	{
+	//		for (int k =0; k < 30 ;k++)
+	//		{
+	//			sprintf_s(buffer, sizeof(buffer), "%d", ay7aga[k]);
+	//			CrsINAvilDays[i][j] = buffer;
+	//		}
+	//	}
+	//}
 
 
 	std::cout << "Course: " << course << '\n';
@@ -97,7 +100,7 @@ void Student::createStSchdl(std::string ID, std::string course)
 	{
 		for (int j = 0; j < 5; j++)
 		{
-			if ((STtimetable[i][j].length() == 2) &&  )
+			if ((STtimetable[i][j].length() == 2) && (CrsINAvilDays[j][i] != std::string("0")))
 			{
 				std::cout << "Student free on Day: " << i << "Slot " << j << '\n';
 			}
