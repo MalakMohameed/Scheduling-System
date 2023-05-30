@@ -11,12 +11,14 @@
 #include <Windows.h>
 #include <iostream>
 #include "User.h"
+//#include "Courses.cpp"
 #include "Instructor.h"
 #include "Instructor.cpp"
 #include "FormManger.h"
 #include "Student.h"
-//#include "Student.cpp"
+#include "Student.cpp"
 #include <fstream>
+
 
 User CurrentUser;
 FormManger Fhndlr;

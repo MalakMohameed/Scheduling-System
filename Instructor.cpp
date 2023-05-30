@@ -86,7 +86,7 @@ void Instructor::CreateSchedule(std::string instructorName, std::string ID, int 
                 }
                 else
                 {
-                    schedule << timetable[i][j] << std::setw(8) << " ";
+                    schedule << timetable[i][j] << std::setw(6) << " ";
                 }
                 if ((j + 1) % 6 == 0)
                 {
@@ -160,9 +160,7 @@ int Instructor::ViewSchedule(std::string name, std::string ID, tgui::GuiSFML& gu
 
                 if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
                 {
-
-
-                    SelectedDays[i] = stoi(output);
+                SelectedDays[i] = stoi(output);
 
                 }
                 else if (stoi(output) == 65 || stoi(output) / 100 == 65)
@@ -179,14 +177,14 @@ int Instructor::ViewSchedule(std::string name, std::string ID, tgui::GuiSFML& gu
 
                     }
                 }
-
-
-            }
+         }
 
             break;
         }
 
     }
+
+   
 
     if (check == true) {
         tgui::CheckBox::Ptr checkboxes[30];
@@ -236,53 +234,59 @@ std::string Instructor::getInstructorSubject(std::string ID)
 
 int* Instructor::AvilableDays(std::string CrsID)
 {
-
     std::ifstream read("resources/Files/timetable.txt");
     std::string output;
     std::string ID = getInstructorID(CrsID);
     std::string name = getInstructorName(CrsID);
     bool check = false;
-    ///////////////////////////////
     int SelectedDays[30] = {};
-    ////////////////////////////
-
     while (!read.eof())
     {
-        getline(read, output);
+        getline(read, output, '\t');
         if (output.find(name + ID + CrsID + ":") != std::string::npos)
         {
             check = true;
             std::cout << "User Found!\n" << output << '\n';
+            std::cout << "OUTPUT->" << output << '\n';
             for (int i = 0; i < 30; i++) {
                 read >> output;
-
-                if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
-                { 
-
-                    SelectedDays[i] = stoi(output);
-
-                }
-                else if (stoi(output) == 65 || stoi(output) / 100 == 65)
-                {
-                    if (stoi(output) == 65)
-                    {
-                        break;
-                    }
-                    else if (stoi(output) / 100 == 65)
-                    {
-
+               
+                try {
+                    // ...
+                    if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0 && output != " ") {
                         SelectedDays[i] = stoi(output);
-                        break;
-
+                        // ...
                     }
+                    else if (stoi(output) == 65 || stoi(output) / 100 == 65) {
+                         std::cout << "KAKA1\n";
+                        if (stoi(output) == 65)
+                        {
+                            std::cout << "KAKA2\n";
+                            break;
+                        }
+                        else if (stoi(output) / 100 == 65)
+                        {
+                            std::cout << "KAKA3\n";
+                            SelectedDays[i] = stoi(output);
+                            break;
+
+                        }
+                    }
+                    // ...
+                }
+                catch (const std::exception& e) {
+                    std::cout << "Error: " << e.what() << '\n';
                 }
 
-
+               /* else if (stoi(output) == 65 || stoi(output) / 100 == 65)
+                {
+                  
+                }*/
             }
 
             break;
-        }
 
+        }
     }
 
     if (check == true) {

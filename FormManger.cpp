@@ -260,30 +260,39 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 	gui.get<tgui::Button>("STManageCourse")->onPress([=, &gui]
 		{
 
-			std::cout << "ManageAvil is " << ManageAvil << '\n';
-	if (ManageAvil == false) {
-		ManageAvil = true;
-		std::cout << "ManageAvil is " << ManageAvil << '\n';
-		std::cout << "Child Win. created.\n";
-		gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(true);
-		std::cout << "Child Win. Visible.\n";
 
-		gui.get<tgui::Button>("StMnDrop")->onPress([=, &gui] {
+			auto UpdateDropCombo = [&]() {
 
-			gui.get<tgui::ComboBox>("DropCrsList")->removeAllItems();
-		gui.get<tgui::Label>("DrpErrMsg")->setVisible(false);
-		gui.get<tgui::Group>("GroupDrop")->setVisible(true);
-		gui.get<tgui::ComboBox>("DropCrsList")->addItem("-No Courses Avil-");
-
-		auto UpdateDropCombo = [&]() {
-			
 			for (const auto& Crs : STudent.getStudentSubjects(UsrID))
 			{
 				gui.get<tgui::ComboBox>("DropCrsList")->addItem(Crs);
 			}
 		};
 
-		UpdateDropCombo();
+
+			std::cout << "ManageAvil is " << ManageAvil << '\n';
+	if (ManageAvil == false) {
+		ManageAvil = true;
+		std::cout << "ManageAvil is " << ManageAvil << '\n';
+		std::cout << "Child Win. created.\n";
+		gui.get<tgui::Group>("GrpADD")->setVisible(false);
+		gui.get<tgui::Group>("GroupDrop")->setVisible(false);
+		gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(true);
+		std::cout << "Child Win. Visible.\n";
+
+		gui.get<tgui::Button>("StMnDrop")->onPress([=, &gui] {
+
+			
+			gui.get<tgui::ComboBox>("DropCrsList")->removeAllItems();
+		gui.get<tgui::Label>("DrpErrMsg")->setVisible(false);
+		gui.get<tgui::Group>("GrpADD")->setVisible(false);
+		gui.get<tgui::Group>("GroupDrop")->setVisible(true);
+		
+		gui.get<tgui::ComboBox>("DropCrsList")->addItem("-No Courses Avil-");
+
+		
+
+		
 
 		gui.get<tgui::Button>("StMtDropBtn")->onPress([=, &gui,&UpdateDropCombo] {
 
@@ -302,9 +311,17 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 			}
 
 			});
+		
+			});
 
+		gui.get<tgui::Button>("StMnAdd")->onPress([=, &gui, &UpdateDropCombo] {
 
+			gui.get<tgui::Group>("GrpADD")->setVisible(true);
+			gui.get<tgui::Group>("GroupDrop")->setVisible(false);
 
+			int MboxSubmitSuc = MessageBoxA(NULL, (LPCSTR)"\nCourse Registration Isn't Currently Available,\n Contact SSO For More Info \n", (LPCSTR)"Submission", MB_ICONINFORMATION | MB_OK | MB_DEFBUTTON1);
+			gui.get<tgui::ChildWindow>("ManageCrs")->setVisible(false);
+			ManageAvil = false;
 			});
 
 
