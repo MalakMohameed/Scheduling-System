@@ -17,6 +17,7 @@
 #define IN_EDIT_FORM_PATH "resources/Inst_Edit.txt"
 #define IN_VIEW_FORM_PATH "resources/Inst_View.txt"
 #define ST_MYCOURSE_FORM_PATH "resources/St_Mycourses.txt"
+#define ST_MYSCHEDULE_FORM_PATH "resources/St_MySchedule.txt"
 //insert additional filepaths here 
 
 
@@ -34,6 +35,7 @@ private:
 		void showInViewMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrId="");
 		void showStMainMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrID = "");
 		void showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrID = "");
+		void showStScheduleMenu(tgui::GuiSFML& gui, std::string Usr = NULL, std::string UsrID = "");
 	
 
 	
@@ -59,7 +61,7 @@ public:
 	struct 
 	{
 		tgui::String one = ST_MYCOURSE_FORM_PATH;	//has Student Sub forms
-		tgui::String two = "";
+		tgui::String two = ST_MYSCHEDULE_FORM_PATH;
 	}StudentForms;
 	
 	struct 

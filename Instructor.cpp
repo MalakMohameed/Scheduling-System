@@ -234,4 +234,130 @@ std::string Instructor::getInstructorSubject(std::string ID)
 }
 
 
+std::string* Instructor::AvilableDays(std::string CrsID)
+{
+
+    std::ifstream read("resources/Files/timetable.txt");
+    std::string output;
+    std::string ID = getInstructorID(CrsID);
+    std::string name = getInstructorName(CrsID);
+    bool check = false;
+    ///////////////////////////////
+    int SelectedDays[30] = {};
+    ////////////////////////////
+
+    while (!read.eof())
+    {
+        getline(read, output);
+        if (output.find(name + ID + getInstructorSubjecCode(CrsID) + ":") != std::string::npos)
+        {
+            check = true;
+            std::cout << "User Found!\n" << output << '\n';
+            for (int i = 0; i < 30; i++) {
+                read >> output;
+
+                if (stoi(output) % 100 == stoi(ID) && stoi(output) / 100 != 0)
+                {
+
+
+                    SelectedDays[i] = stoi(output);
+
+                }
+                else if (stoi(output) == 65 || stoi(output) / 100 == 65)
+                {
+                    if (stoi(output) == 65)
+                    {
+                        break;
+                    }
+                    else if (stoi(output) / 100 == 65)
+                    {
+
+                        SelectedDays[i] = stoi(output);
+                        break;
+
+                    }
+                }
+
+
+            }
+
+            break;
+        }
+
+    }
+
+    if (check == true) {
+        return SelectedDays;
+    }
+    else {
+        std::cout << "Instructor Not In DataBase, Contact SSO\n";
+    }
+
+    read.close();
+
+}
+std::string Instructor::getInstructorSubjecCode(std::string CrsID)
+{
+
+    std::string courseID;
+
+    for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
+    {
+        if (InstructorDB[i][2] == CrsID)
+        {
+
+            courseID = InstructorDB[i][2];
+            return courseID;
+
+        }
+        else {
+            std::cout << "Instructor Not In DataBase, Contact SSO\n";
+        }
+    }
+
+}
+
+std::string Instructor::getInstructorName(std::string CrsID)
+{
+
+    std::string InstructorName;
+
+    for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
+    {
+        if (InstructorDB[i][0] == CrsID)
+        {
+
+            InstructorName = InstructorDB[i][0];
+            return InstructorName;
+
+        }
+        else {
+            std::cout << "Instructor Not In DataBase, Contact SSO\n";
+        }
+    }
+
+}
+
+std::string Instructor::getInstructorID(std::string CrsID)
+{
+
+    std::string InstructorID;
+
+    for (int i = 0; i < (sizeof(InstructorDB) / sizeof(InstructorDB[0][0])); i++)
+    {
+        if (InstructorDB[i][2] == CrsID)
+        {
+
+            InstructorID = InstructorDB[i][2];
+            return InstructorID;
+
+        }
+        else {
+            std::cout << "Instructor Not In DataBase, Contact SSO\n";
+        }
+    }
+
+}
+
+
 //Signed #16

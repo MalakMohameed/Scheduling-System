@@ -15,6 +15,7 @@
 
 Instructor schedule;
 int* checkboxes;
+
 Student STudent;
 
 
@@ -219,9 +220,10 @@ void FormManger::showStMainMenu(tgui::GuiSFML& gui, std::string Usr, std::string
 
 	showStCoursesMenu(gui, Usr, UsrID);
 		});
-	gui.get<tgui::BitmapButton>("ST_SCHEDULE")->onPress([] {
+	gui.get<tgui::BitmapButton>("ST_SCHEDULE")->onPress([=, &gui] {
 
 		std::cout << "My Schedule Has been pressed\n";
+		showStScheduleMenu(gui, Usr, UsrID);
 
 		});
 
@@ -321,6 +323,25 @@ void FormManger::showStCoursesMenu(tgui::GuiSFML& gui, std::string Usr, std::str
 	}
 
 		});
+
+}
+void FormManger::showStScheduleMenu(tgui::GuiSFML& gui, std::string Usr, std::string UsrID)
+{
+	gui.loadWidgetsFromFile(StudentForms.two);
+	gui.get<tgui::BitmapButton>("BackButton")->onPress([=,&gui] {
+
+		showStMainMenu(gui, Usr, UsrID);
+
+		});
+
+	
+	for (const auto& crs : STudent.getStudentSubjects(UsrID))
+	{
+		STudent.createStSchdl(UsrID, crs);
+
+	}
+
+	
 
 }
 //Signed #16

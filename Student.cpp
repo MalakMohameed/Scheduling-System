@@ -73,4 +73,38 @@ void Student::dropCourse(std::string ID, std::string courseCode)
 
 	
 }
+void Student::createStSchdl(std::string ID, std::string course)
+{
+	Instructor instructor;
+
+	std::string CrsINAvilDays[5][6];
+	std::string ay7aga[30] = instructor.AvilableDays(course);
+
+	for (int i =0; i < 5; i++)
+	{
+		for (int j =0; j<6; j++)
+		{
+			for (int k =0;k<30 ;k++)
+			{
+
+			}
+		}
+	}
+
+
+	std::cout << "Course: " << course << '\n';
+	for (int i = 0; i < 6; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			if ((STtimetable[i][j].length() == 2) &&  )
+			{
+				std::cout << "Student free on Day: " << i << "Slot " << j << '\n';
+			}
+		}
+
+	}
+	
+}
+
 //Signed #16
